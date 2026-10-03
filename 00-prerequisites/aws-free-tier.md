@@ -59,6 +59,40 @@ Sources: [AWS Free Tier](https://aws.amazon.com/free/) and
 
 ---
 
+## Card-free options for students (often better than the standard Free Tier)
+
+If you want to learn AWS **without ever entering a card**, two programs are a better fit
+for a classroom than the standard Free account plan. Content was rephrased for
+compliance with licensing restrictions.
+
+### AWS Student Rewards (no card, best for card-free learning)
+
+- Launched around **20 August 2026** through the **AWS Builder Center** — **no credit
+  card is ever required**.
+- Gives you roughly **12 months of premium Skill Builder training**, **up to $30 in AWS
+  credits**, and a **$100 certification exam voucher**.
+- This is the best card-free path for students who mainly want to learn and earn credits.
+
+Sources:
+[Free AWS certification for students — step-by-step guide](https://dev.to/aws-builders/free-aws-certification-for-students-the-complete-step-by-step-guide-3m1m)
+and [AWS Builder Center — Student Rewards](https://builder.aws.com/student-rewards).
+
+### AWS Educate (email-only, no card, learners 13+)
+
+- Register with **just an email address** — **no credit card** needed.
+- Open to learners **13 and older**, aimed at **pre-professional / new-to-cloud**
+  learners who want hands-on practice.
+
+Source: [AWS Educate](https://aws.amazon.com/education/awseducate/).
+
+### Which path should a class pick?
+
+For a classroom, **prefer a card-free path** (AWS Student Rewards or AWS Educate) unless
+the exercise specifically needs **full console / EC2 access**, in which case use the
+standard **Free account plan** with the cost-safety steps already documented below.
+
+---
+
 ## The whole flow at a glance
 
 _The signup steps come first, then the cost-safety steps that keep the account free._
@@ -134,6 +168,15 @@ A budget emails you before anything unexpected happens.
 2. Click **Create budget**. AWS offers a ready-made **"Zero spend budget"** template —
    that's the simplest choice. Otherwise choose **Cost budget** and set a low amount
    like **$1** or **$5**.
+
+> **AWS Budgets is free for one monthly budget.** AWS gives you **62 budget-days per
+> month free**, so a single monthly cost budget costs nothing to run — perfect for this
+> alert. Other always-free examples include **AWS Lambda (~1M requests/month)** and
+> **CloudWatch (~10 alarms)**. Content was rephrased for compliance with licensing
+> restrictions. Sources:
+> [Control your costs with Free Tier budgets](https://aws.amazon.com/getting-started/hands-on/control-your-costs-free-tier-budgets/),
+> [Free Tier plans](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/free-tier-plans.html),
+> and [Checklist for unwanted charges](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/checklistforunwantedcharges.html).
 
    ![AWS Budgets Create budget screen using the Zero spend template](images/aws-budgets-create.png)
    <br><sub>Screenshot needed — see <a href="images/README.md">images/README.md</a>. Capture: the AWS Budgets "Create budget" screen with the Zero spend budget template chosen.</sub>

@@ -12,6 +12,26 @@ The Community plan includes **Studio (Pro)**, **StudioX**, **Orchestrator**, and
 **1 Attended + 1 Unattended** robot — enough for the whole project. **No credit card is
 required.**
 
+### Good things to know about the Community plan
+
+Content was rephrased for compliance with licensing restrictions.
+
+- **No time limit.** The underlying 12-month license **auto-renews**, so the expiry date
+  keeps moving forward — the plan does not simply run out mid-course.
+- **Orchestrator is limited to 1 machine per user** on Community, which is fine for this
+  workshop.
+- The **Community Edition was rebuilt in August 2026** around **AI agents, coding
+  agents, and APIs**.
+- A **"Small Business"** — an organization and its affiliates under roughly
+  **USD $5M annual revenue** — may use Community for **internal commercial** work, and
+  **students doing coursework are fine**.
+- UiPath changes its terms and plans often — **confirm the current details** on the
+  official pages before the session.
+
+Sources:
+[UiPath Community plan docs](https://docs.uipath.com/automation-cloud/automation-cloud/latest/admin-guide/community-plan)
+and [UiPath pricing](https://www.uipath.com/pricing).
+
 ---
 
 ## Steps

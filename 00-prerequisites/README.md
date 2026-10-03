@@ -9,8 +9,9 @@ ones your tier needs:
 - [`python-setup.md`](python-setup.md) — Python 3.11+, virtual environment, dependencies
 - [`git-and-editor.md`](git-and-editor.md) — Git and a code editor (VS Code / Kiro)
 - [`uipath-cloud.md`](uipath-cloud.md) — UiPath Automation Cloud (Community) for Project 3
-- [`aws-free-tier.md`](aws-free-tier.md) — AWS account + cost safety (expert tier only)
-- [`kiro-install.md`](kiro-install.md) — Install Kiro (expert tier only)
+- [`kiro-install.md`](kiro-install.md) — Install Kiro (expert tier; no AWS account needed)
+- [`aws-free-tier.md`](aws-free-tier.md) — AWS account + cost safety (only if hosting the
+  expert watcher on AWS)
 - [`api-keys.md`](api-keys.md) — Anthropic API key for the expert AI tiers
 
 > **Heads-up:** AWS and Kiro change their terms, pricing, and screens often. Every fact
@@ -32,14 +33,19 @@ flowchart TD
     C --> D[Create a UiPath Cloud account]
     D --> E{Doing the Project 3 expert agentic tier?}
     E -->|No - all other projects/tiers| F[Done - you have the basics]
-    E -->|Yes - expert only| G[Create an AWS account on the Free plan]
-    G --> H[Install Kiro and sign in]
+    E -->|Yes - expert only| H[Install Kiro and sign in - no AWS account needed]
     H --> I[Add an Anthropic API key to .env]
-    I --> J[Done - expert setup complete]
+    I --> K{Hosting the watcher on AWS?}
+    K -->|No - run it locally| J[Done - expert setup complete]
+    K -->|Yes - optional| G[Create an AWS account on the Free plan]
+    G --> J
 ```
 
 > **Note:** the expert AI steps in Projects 1 and 2 also need the **Anthropic API key**,
-> but not AWS or Kiro. Use the tool matrix below to confirm exactly what your tier needs.
+> but not AWS or Kiro. **Kiro itself does not require an AWS account** — you sign in with
+> GitHub, Google, AWS Builder ID, or AWS IAM Identity Center. You only need AWS if you
+> choose to **host the watcher on AWS**. Use the tool matrix below to confirm exactly
+> what your tier needs.
 
 ---
 
@@ -64,10 +70,11 @@ depends on how far you take each project.
 **Expert tiers (Project 1 & 2 AI steps, Project 3 agentic layer):**
 
 - [ ] An **Anthropic API key** in a local `.env` file — see [`api-keys.md`](api-keys.md)
-- [ ] An **AWS account** on the **Free account plan**, with MFA + a budget alert —
-      see [`aws-free-tier.md`](aws-free-tier.md)  *(Project 3 expert)*
-- [ ] **Kiro** installed and signed in — see [`kiro-install.md`](kiro-install.md)
-      *(Project 3 expert)*
+- [ ] **Kiro** installed and signed in (GitHub / Google / AWS Builder ID — **no AWS
+      account required**) — see [`kiro-install.md`](kiro-install.md) *(Project 3 expert)*
+- [ ] *(Only if you host the watcher on AWS)* An **AWS account** on the **Free account
+      plan**, with MFA + a budget alert — see [`aws-free-tier.md`](aws-free-tier.md)
+      *(Project 3 expert, optional)*
 
 ---
 
@@ -80,10 +87,14 @@ depends on how far you take each project.
 | **2** News — basic / advanced | ✅ | ✅ | — | — | — | — |
 | **2** News — expert (AI + email) | ✅ | ✅ | — | ✅ | — | — |
 | **3** RPA — basic / advanced | ✅ | ✅ | ✅ | — | — | — |
-| **3** RPA — expert (agentic) | ✅ | ✅ | ✅ | — | ✅ | ✅ |
+| **3** RPA — expert (agentic) | ✅ | ✅ | ✅ | — | ⚠️ | ✅ |
 
-The Project 3 **expert** watcher itself needs no network and no API key — the AWS +
-Kiro requirement is for authoring the agent spec in Kiro, not for running the sample.
+⚠️ **AWS is conditional, not mandatory.** Project 3 expert needs **Kiro** to author the
+watcher-agent spec, and **Kiro does not require an AWS account** (sign in with GitHub,
+Google, AWS Builder ID, or AWS IAM Identity Center). You only need an **AWS account** if
+you choose to **host the watcher on AWS** — otherwise you can skip the AWS setup
+entirely. The expert watcher itself needs no network and no API key: the Kiro
+requirement is for authoring the agent spec, not for running the sample.
 
 ---
 
@@ -92,7 +103,9 @@ Kiro requirement is for authoring the agent spec in Kiro, not for running the sa
 1. [Python](python-setup.md) → [Git + editor](git-and-editor.md) — needed by every project.
 2. [UiPath Automation Cloud](uipath-cloud.md) — if you're doing Project 3.
 3. [Anthropic API key](api-keys.md) — if you're doing any expert AI tier.
-4. [AWS Free Tier](aws-free-tier.md) → [Kiro](kiro-install.md) — only for Project 3 expert.
+4. [Kiro](kiro-install.md) — only for Project 3 expert (no AWS account needed to sign in).
+5. [AWS Free Tier](aws-free-tier.md) — **only if** you host the Project 3 expert watcher
+   on AWS; otherwise skip it.
 
 Secrets (the Anthropic key, SMTP passwords, webhooks) go **only** in a local `.env`
 file, which is git-ignored. Copy [`.env.example`](../.env.example) to `.env` and fill in

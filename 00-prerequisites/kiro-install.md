@@ -22,8 +22,11 @@ Developer. Downloading it is **free**.
 
 ## Before you start
 
-Do the [AWS Free Tier setup](aws-free-tier.md) first — you'll sign in to Kiro with an
-AWS identity.
+**You do NOT need an AWS account to use Kiro.** You can sign in with **GitHub**,
+**Google**, an **AWS Builder ID**, or **AWS IAM Identity Center** — a plain AWS account
+is not required. Content was rephrased for compliance with licensing restrictions.
+Sources: [kiro.dev FAQ](https://kiro.dev/faq/) and
+[Kiro authentication docs](https://kiro.dev/docs/getting-started/authentication/).
 
 ### System requirements
 
@@ -43,7 +46,7 @@ flowchart LR
     B --> C[Accept license]
     C --> D[Choose install location]
     D --> E[Launch Kiro]
-    E --> F[Sign in with AWS Builder ID]
+    E --> F[Sign in - GitHub, Google, or AWS Builder ID]
     F --> G[Verify with a trivial spec]
 ```
 
@@ -67,13 +70,33 @@ flowchart LR
 
 ### First launch / sign-in
 
-1. On first launch, **sign in to authenticate**. Kiro supports **AWS Builder ID**, an
-   **AWS account**, or supported **SSO**.
+1. On first launch, **sign in to authenticate**. Kiro lets you sign in with **GitHub**,
+   **Google**, an **AWS Builder ID**, or **AWS IAM Identity Center** — **no AWS account
+   is required**. See [kiro.dev FAQ](https://kiro.dev/faq/) and
+   [Kiro authentication docs](https://kiro.dev/docs/getting-started/authentication/).
 2. Signing in activates the agent features.
 
-> **Credits/usage:** downloading Kiro is free, but **AI agent usage consumes credits**.
-> There is a perpetual **Kiro Free tier with a limited monthly credit allocation**, and
-> agent requests draw from it. The **free tier is all you need** for this workshop.
+### Free tier, credits, and models
+
+Downloading Kiro is free, and the **free tier is all you need** for this workshop.
+Content was rephrased for compliance with licensing restrictions.
+
+- The **Kiro Free tier gives 50 credits per month** (perpetual — it renews every month).
+- Free-tier users signed in via **social logins** (GitHub/Google) or an **AWS Builder
+  ID** get **Claude Sonnet 4.5** plus **open-weight models** (for example **Qwen3
+  Coder**, **DeepSeek**, **MiniMax**), subject to rate limits.
+- Credits are **metered finely — down to 0.01 per task** — and the older separate
+  vibe/spec request limits are now unified into a **single credit pool**.
+- **For reference only** (you do **not** need to pay — students only need the free
+  tier): Pro ~**$20/mo**, Pro+ ~**$40/mo**, Pro Max ~**$100/mo**, Power ~**$200/mo**.
+
+> Kiro's pricing and credit amounts change often. **Confirm the current terms** at
+> [kiro.dev/pricing](https://kiro.dev/pricing/) and
+> [kiro.dev/docs/billing](https://kiro.dev/docs/billing/) before the session.
+
+Sources: [kiro.dev/pricing](https://kiro.dev/pricing/),
+[Kiro pricing plans are live](https://kiro.dev/blog/pricing-plans-are-live/), and
+[kiro.dev FAQ](https://kiro.dev/faq/).
 
 Full official docs: [kiro.dev/docs](https://kiro.dev/docs).
 
@@ -91,8 +114,9 @@ Full official docs: [kiro.dev/docs](https://kiro.dev/docs).
 
 ## Common errors and fixes
 
-- **Sign-in fails / agent features greyed out** — Confirm you're signed in with the AWS
-  identity from the [AWS setup](aws-free-tier.md) and that your region is supported.
+- **Sign-in fails / agent features greyed out** — Confirm you're signed in with one of
+  the supported providers (GitHub, Google, AWS Builder ID, or AWS IAM Identity Center)
+  and that your region is supported. You do not need an AWS account.
 - **Agent requests stop working** — You may have used up the free monthly credit
   allocation; check your usage. The free tier resets monthly.
 - **Installer blocked by Windows SmartScreen** — Confirm you downloaded from
