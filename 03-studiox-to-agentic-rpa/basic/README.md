@@ -13,7 +13,7 @@ recording. This is the first rung above where your syllabus left off.
 ## Prerequisites
 
 - A free **UiPath Automation Cloud Community** account ([cloud.uipath.com](https://cloud.uipath.com/)).
-  See [`00-prerequisites/README.md`](../../00-prerequisites/README.md) step 4.
+  See [`00-prerequisites/uipath-cloud.md`](../../00-prerequisites/uipath-cloud.md).
 - UiPath Studio (Pro) installed from your Automation Cloud tenant.
 - One of your BCG701 Excel exercises handy to rebuild.
 

@@ -11,7 +11,7 @@ all environment-driven.
 
 - Everything from the [advanced tier](../advanced/README.md).
 - An Anthropic API key in your `.env` (`ANTHROPIC_API_KEY=...`). See
-  [`00-prerequisites/README.md`](../../00-prerequisites/README.md) step 3.
+  [`00-prerequisites/api-keys.md`](../../00-prerequisites/api-keys.md).
 - (Optional) SMTP settings in `.env` if you want email delivery. Leave `SMTP_HOST`
   blank to just print.
 

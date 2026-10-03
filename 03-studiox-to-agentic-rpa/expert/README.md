@@ -15,8 +15,13 @@ This tier is the clearest payoff of Hour 1's thesis: StudioX did the recording, 
 
 - A completed [advanced tier](../advanced/orchestrator_setup_guide.md) (Orchestrator +
   a queue with retry/escalate).
-- An **AWS Educate** account and **Kiro** installed. See
-  [`00-prerequisites/README.md`](../../00-prerequisites/README.md) steps 5-6.
+- **Kiro** installed and signed in — see
+  [`00-prerequisites/kiro-install.md`](../../00-prerequisites/kiro-install.md). Kiro does
+  **not** require an AWS account; sign in with GitHub, Google, an AWS Builder ID, or AWS
+  IAM Identity Center.
+- *(Only if you host the watcher on AWS)* an AWS account — see
+  [`00-prerequisites/aws-free-tier.md`](../../00-prerequisites/aws-free-tier.md). Running
+  the sample watcher locally needs no AWS.
 - Python 3.11+ (the watcher itself needs **no network and no API key**).
 
 ## Step-by-step setup
@@ -69,7 +74,8 @@ Summary:
   pass the full path to the JSON file.
 - **"Log file is not valid JSON"** — Your custom log has a syntax error. Validate it,
   or compare against `sample_orchestrator_log.json`.
-- **Kiro can't reach Bedrock** — Confirm you're signed in with the AWS account from the
-  prerequisites and that your region has Bedrock access.
+- **Kiro sign-in fails** — Confirm you're signed in with GitHub, Google, an AWS Builder
+  ID, or AWS IAM Identity Center (no AWS account needed). See
+  [`00-prerequisites/kiro-install.md`](../../00-prerequisites/kiro-install.md).
 - **Watcher makes a "wrong" call** — The rules are deliberately simple and auditable;
   tune them in `decide()` and update the spec to match.

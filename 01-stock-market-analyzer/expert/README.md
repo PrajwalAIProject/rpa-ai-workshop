@@ -11,7 +11,7 @@ the model is prompted to **flag low confidence** instead of always sounding cert
 
 - Everything from the [advanced tier](../advanced/README.md).
 - An Anthropic API key in your `.env` file (`ANTHROPIC_API_KEY=...`). See
-  [`00-prerequisites/README.md`](../../00-prerequisites/README.md) step 3.
+  [`00-prerequisites/api-keys.md`](../../00-prerequisites/api-keys.md).
 - The `anthropic` and `python-dotenv` packages (in the shared requirements).
 
 ## Step-by-step setup
