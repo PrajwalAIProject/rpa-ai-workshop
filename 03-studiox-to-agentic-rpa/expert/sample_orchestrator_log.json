@@ -1,0 +1,51 @@
+{
+  "tenant": "workshop-community",
+  "generated_at": "2025-01-15T07:05:00Z",
+  "jobs": [
+    {
+      "job_id": "J-1001",
+      "process": "InvoiceExtraction",
+      "state": "Faulted",
+      "attempt": 1,
+      "max_retries": 3,
+      "exception_type": "ApplicationException",
+      "error_message": "Timeout connecting to the invoice portal (transient network error)."
+    },
+    {
+      "job_id": "J-1002",
+      "process": "InvoiceExtraction",
+      "state": "Faulted",
+      "attempt": 3,
+      "max_retries": 3,
+      "exception_type": "ApplicationException",
+      "error_message": "Portal still unreachable after multiple attempts."
+    },
+    {
+      "job_id": "J-1003",
+      "process": "InvoiceExtraction",
+      "state": "Faulted",
+      "attempt": 1,
+      "max_retries": 3,
+      "exception_type": "BusinessException",
+      "error_message": "Required field 'InvoiceNumber' is missing from the input item."
+    },
+    {
+      "job_id": "J-1004",
+      "process": "InvoiceExtraction",
+      "state": "Successful",
+      "attempt": 1,
+      "max_retries": 3,
+      "exception_type": null,
+      "error_message": null
+    },
+    {
+      "job_id": "J-1005",
+      "process": "InvoiceExtraction",
+      "state": "Faulted",
+      "attempt": 2,
+      "max_retries": 3,
+      "exception_type": "ApplicationException",
+      "error_message": "File locked by another user; will likely clear shortly."
+    }
+  ]
+}

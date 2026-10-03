@@ -1,0 +1,13 @@
+# Union of all Python dependencies across the three projects.
+# Install into a virtual environment:
+#     python -m venv .venv
+#     # activate it (see 00-prerequisites/README.md), then:
+#     pip install -r requirements.txt
+
+yfinance==0.2.52
+pandas==2.2.3
+matplotlib==3.9.2
+feedparser==6.0.11
+anthropic==0.39.0
+python-dotenv==1.0.1
+requests==2.32.3

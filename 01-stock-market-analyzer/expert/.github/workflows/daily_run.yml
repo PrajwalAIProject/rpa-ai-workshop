@@ -1,0 +1,36 @@
+# GitHub Actions: run the AI commentary agent on a daily schedule.
+#
+# This workflow lives inside the project folder for teaching clarity. To make it
+# actually run on GitHub, copy it to the REPOSITORY-LEVEL .github/workflows/
+# directory (GitHub only discovers workflows at the repo root).
+#
+# Set the ANTHROPIC_API_KEY as a repository secret:
+#   Settings -> Secrets and variables -> Actions -> New repository secret.
+
+name: Daily Stock Commentary
+
+on:
+  schedule:
+    # 13:30 UTC on weekdays (roughly US market open). Cron is always UTC.
+    - cron: "30 13 * * 1-5"
+  workflow_dispatch: {} # lets you trigger it manually from the Actions tab
+
+jobs:
+  commentary:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r 00-prerequisites/requirements.txt
+
+      - name: Run the commentary agent
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python 01-stock-market-analyzer/expert/ai_commentary_agent.py AAPL

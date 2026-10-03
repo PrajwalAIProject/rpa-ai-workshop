@@ -1,0 +1,36 @@
+# ---- Python ----
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# ---- Environment / secrets ----
+.env
+.env.*
+!.env.example
+
+# ---- Databases ----
+*.db
+*.sqlite
+*.sqlite3
+
+# ---- Generated output ----
+# Matplotlib PNGs are generated at runtime; keep committed samples by exception.
+*.png
+!**/sample_output.png
+
+# ---- OS cruft ----
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- Editor ----
+.vscode/
+.idea/
+*.swp
