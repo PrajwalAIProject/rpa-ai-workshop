@@ -1,92 +1,76 @@
 # 00 — Prerequisites
 
-Set this up once, before the lab. Everything else in the repo assumes it is done.
+Set this up **before** the 5-hour workshop. Everything else in the repo assumes it is
+done. Doing it live eats into lab time, so arrive with the checklist below ticked.
 
-## 1. Install Python 3.11 or newer
+This folder is an index. Each major setup task has its own focused guide — follow the
+ones your tier needs:
 
-1. Download Python from [python.org/downloads](https://www.python.org/downloads/).
-   Any version **3.11 or newer** works.
-2. On Windows, tick **"Add python.exe to PATH"** in the installer.
-3. Confirm it worked:
-   ```bash
-   python --version
-   ```
-   You should see `Python 3.11.x` (or newer).
+- [`python-setup.md`](python-setup.md) — Python 3.11+, virtual environment, dependencies
+- [`git-and-editor.md`](git-and-editor.md) — Git and a code editor (VS Code / Kiro)
+- [`uipath-cloud.md`](uipath-cloud.md) — UiPath Automation Cloud (Community) for Project 3
+- [`aws-free-tier.md`](aws-free-tier.md) — AWS account + cost safety (expert tier only)
+- [`kiro-install.md`](kiro-install.md) — Install Kiro (expert tier only)
+- [`api-keys.md`](api-keys.md) — Anthropic API key for the expert AI tiers
 
-## 2. Create a virtual environment and install dependencies
+> **Heads-up:** AWS and Kiro change their terms, pricing, and screens often. Every fact
+> below was accurate at the time of writing, but **confirm current details on the
+> official pages linked in each guide before the session.** Content was rephrased for
+> compliance with licensing restrictions.
 
-A virtual environment keeps this workshop's packages separate from the rest of your
-system. Do this from the repo root (`rpa-ai-workshop/`).
+---
 
-```bash
-# Create the environment
-python -m venv .venv
+## What you need before the session — checklist
 
-# Activate it
-# Windows (PowerShell):
-.venv\Scripts\Activate.ps1
-# Windows (cmd):
-.venv\Scripts\activate.bat
-# macOS / Linux:
-source .venv/bin/activate
+Tick each item once it's actually done. The first group is for **everyone**; the rest
+depends on how far you take each project.
 
-# Install every Python dependency used across all projects
-pip install -r 00-prerequisites/requirements.txt
-```
+**Everyone (all projects, basic tier):**
 
-When the environment is active your prompt is prefixed with `(.venv)`. Run
-`deactivate` to leave it.
+- [ ] Python **3.11 or newer** installed and on your PATH — see [`python-setup.md`](python-setup.md)
+- [ ] A **virtual environment** created and dependencies installed from
+      [`requirements.txt`](requirements.txt) — see [`python-setup.md`](python-setup.md)
+- [ ] **Git** installed and configured — see [`git-and-editor.md`](git-and-editor.md)
+- [ ] A **code editor** (VS Code recommended) — see [`git-and-editor.md`](git-and-editor.md)
 
-## 3. Set up secrets
+**Project 3 (basic / advanced tiers):**
 
-The expert tiers call the Anthropic Claude API, which needs a key.
+- [ ] A free **UiPath Automation Cloud (Community)** account with MFA on —
+      see [`uipath-cloud.md`](uipath-cloud.md)
 
-1. Copy the example file to a real one (git ignores `.env`):
-   ```bash
-   # Windows (PowerShell):
-   Copy-Item .env.example .env
-   # macOS / Linux:
-   cp .env.example .env
-   ```
-2. Open `.env` and paste your `ANTHROPIC_API_KEY`. Get a key from the
-   [Anthropic Console](https://console.anthropic.com/).
-3. Never commit `.env`. It is already in `.gitignore`.
+**Expert tiers (Project 1 & 2 AI steps, Project 3 agentic layer):**
 
-## 4. Sign up for UiPath Automation Cloud (Community plan)
+- [ ] An **Anthropic API key** in a local `.env` file — see [`api-keys.md`](api-keys.md)
+- [ ] An **AWS account** on the **Free account plan**, with MFA + a budget alert —
+      see [`aws-free-tier.md`](aws-free-tier.md)  *(Project 3 expert)*
+- [ ] **Kiro** installed and signed in — see [`kiro-install.md`](kiro-install.md)
+      *(Project 3 expert)*
 
-Needed for Project 3. Free, no card required.
+---
 
-1. Go to [cloud.uipath.com](https://cloud.uipath.com/) and create a Community account.
-2. This gives you Studio (Pro), StudioX, Orchestrator, and one Attended + one
-   Unattended robot.
-3. Enable **MFA** on the account.
+## Which tool does each project need?
 
-## 5. Sign up for AWS Educate (expert tier of Project 3 only)
+| Project / tier | Python + deps | Git + editor | UiPath Cloud | Anthropic key | AWS | Kiro |
+| -------------- | :-----------: | :----------: | :----------: | :-----------: | :-: | :--: |
+| **1** Stock — basic / advanced | ✅ | ✅ | — | — | — | — |
+| **1** Stock — expert (AI + Actions) | ✅ | ✅ | — | ✅ | — | — |
+| **2** News — basic / advanced | ✅ | ✅ | — | — | — | — |
+| **2** News — expert (AI + email) | ✅ | ✅ | — | ✅ | — | — |
+| **3** RPA — basic / advanced | ✅ | ✅ | ✅ | — | — | — |
+| **3** RPA — expert (agentic) | ✅ | ✅ | ✅ | — | ✅ | ✅ |
 
-Only needed if you reach Project 3 expert (Kiro + the watcher agent).
+The Project 3 **expert** watcher itself needs no network and no API key — the AWS +
+Kiro requirement is for authoring the agent spec in Kiro, not for running the sample.
 
-1. Prefer [AWS Educate](https://aws.amazon.com/education/awseducate/) with your school
-   email — typically no card required, with starter credit.
-2. If you use a standard AWS account instead, **set a billing alert at a low
-   threshold before launching any compute**, and create a scoped **IAM user** rather
-   than using the root account.
-3. Enable **MFA**.
-4. AWS terms change often — confirm current credit amounts closer to the date.
+---
 
-## 6. Install Kiro
+## Order to do it in
 
-Needed for Project 3 expert.
+1. [Python](python-setup.md) → [Git + editor](git-and-editor.md) — needed by every project.
+2. [UiPath Automation Cloud](uipath-cloud.md) — if you're doing Project 3.
+3. [Anthropic API key](api-keys.md) — if you're doing any expert AI tier.
+4. [AWS Free Tier](aws-free-tier.md) → [Kiro](kiro-install.md) — only for Project 3 expert.
 
-1. Download and install Kiro, AWS's spec-driven agentic IDE.
-2. Sign in with the AWS account from step 5.
-
-## Common errors and fixes
-
-- **`python` not found / wrong version** — On some systems the command is `python3`.
-  Reinstall and tick "Add to PATH" (Windows), or use `python3 -m venv .venv`.
-- **PowerShell blocks `Activate.ps1`** — Run once in that terminal:
-  `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`, then activate again.
-- **`pip install` fails to build a package** — Upgrade pip first:
-  `python -m pip install --upgrade pip`, then retry.
-- **`ANTHROPIC_API_KEY` not picked up** — Confirm `.env` is in the repo root and the
-  line reads `ANTHROPIC_API_KEY=sk-...` with no quotes or trailing spaces.
+Secrets (the Anthropic key, SMTP passwords, webhooks) go **only** in a local `.env`
+file, which is git-ignored. Copy [`.env.example`](../.env.example) to `.env` and fill in
+your own values. **Never commit real keys.**
