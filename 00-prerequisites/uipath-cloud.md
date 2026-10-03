@@ -19,7 +19,8 @@ required.**
 1. Go to [cloud.uipath.com](https://cloud.uipath.com/) and choose **Sign up** / create a
    **Community** account. You can sign up with Google, Microsoft, or an email address.
 
-   > _(screenshot placeholder: UiPath Automation Cloud sign-up page)_
+   ![UiPath Automation Cloud sign-up page](images/uipath-signup.png)
+   <br><sub>Screenshot needed — see <a href="images/README.md">images/README.md</a>. Capture: the UiPath Automation Cloud sign-up page showing the Community sign-up options.</sub>
 2. Verify your email if prompted, then let UiPath finish provisioning your Community
    tenant (this takes a minute the first time).
 3. Once in, you'll land on the Automation Cloud home with **Orchestrator** and

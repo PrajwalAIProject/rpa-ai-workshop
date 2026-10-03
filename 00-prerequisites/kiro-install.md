@@ -33,12 +33,29 @@ AWS identity.
 
 ---
 
+## Install flow at a glance
+
+_From download to a working agent, in order._
+
+```mermaid
+flowchart LR
+    A[Download from kiro.dev] --> B[Run installer]
+    B --> C[Accept license]
+    C --> D[Choose install location]
+    D --> E[Launch Kiro]
+    E --> F[Sign in with AWS Builder ID]
+    F --> G[Verify with a trivial spec]
+```
+
+---
+
 ## Steps (Windows)
 
 1. Go to the official site **[kiro.dev](https://kiro.dev/)** and open the
    getting-started / installation page. Download the **Windows installer**.
 
-   > _(screenshot placeholder: kiro.dev download page)_
+   ![kiro.dev download page](images/kiro-download.png)
+   <br><sub>Screenshot needed — see <a href="images/README.md">images/README.md</a>. Capture: the kiro.dev download / getting-started page showing the Windows installer download.</sub>
 2. Run the installer.
 3. Accept the **AWS Customer Agreement / license** when prompted.
 4. Choose the install location, or keep the default

@@ -59,12 +59,34 @@ Sources: [AWS Free Tier](https://aws.amazon.com/free/) and
 
 ---
 
+## The whole flow at a glance
+
+_The signup steps come first, then the cost-safety steps that keep the account free._
+
+```mermaid
+flowchart TD
+    A[Create account] --> B[Verify email]
+    B --> C[Set root password]
+    C --> D[Enter contact info]
+    D --> E[Add payment method]
+    E --> F[Identity / phone verify]
+    F --> G[Choose FREE account plan]
+    G --> H[Sign in to console]
+    H --> I[Enable root MFA]
+    I --> J[Create IAM user for daily work]
+    J --> K[Set a budget alert]
+    K --> L[Tear down resources when done]
+```
+
+---
+
 ## Steps — create the account
 
 1. Go to [aws.amazon.com](https://aws.amazon.com/) and click **Create an AWS Account**
    (top right).
 
-   > _(screenshot placeholder: AWS homepage "Create an AWS Account" button)_
+   ![AWS homepage with the Create an AWS Account button](images/aws-create-account-button.png)
+   <br><sub>Screenshot needed — see <a href="images/README.md">images/README.md</a>. Capture: the AWS homepage with the top-right "Create an AWS Account" button in view.</sub>
 2. Enter your **email address** and an **account name**, then verify your email with the
    code AWS sends.
 3. Set a **root user password**.
@@ -75,7 +97,8 @@ Sources: [AWS Free Tier](https://aws.amazon.com/free/) and
 7. When asked to choose a plan, select the **Free account plan**.
 8. Finish, then **sign in to the console** as the root user.
 
-   > _(screenshot placeholder: AWS plan selection screen with "Free" highlighted)_
+   ![AWS plan selection screen with the Free plan highlighted](images/aws-plan-selection.png)
+   <br><sub>Screenshot needed — see <a href="images/README.md">images/README.md</a>. Capture: the plan-selection step with the Free account plan selected.</sub>
 
 ---
 
@@ -112,7 +135,8 @@ A budget emails you before anything unexpected happens.
    that's the simplest choice. Otherwise choose **Cost budget** and set a low amount
    like **$1** or **$5**.
 
-   > _(screenshot placeholder: AWS Budgets "Create budget" with the Zero spend template)_
+   ![AWS Budgets Create budget screen using the Zero spend template](images/aws-budgets-create.png)
+   <br><sub>Screenshot needed — see <a href="images/README.md">images/README.md</a>. Capture: the AWS Budgets "Create budget" screen with the Zero spend budget template chosen.</sub>
 3. Add **email alert thresholds** at **50%**, **80%**, and **100%** of the amount.
 4. Enter the email to notify, and finish.
 

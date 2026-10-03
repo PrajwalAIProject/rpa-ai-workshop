@@ -25,7 +25,8 @@ share the same virtual environment and dependency list.
    **"Add python.exe to PATH"** at the bottom — this is the single most common thing
    people forget, and skipping it causes the "python is not recognized" error later.
 
-   > _(screenshot placeholder: Python installer first screen with "Add python.exe to PATH" checked)_
+   ![Python installer first screen with Add python.exe to PATH checked](images/python-add-to-path.png)
+   <br><sub>Screenshot needed — see <a href="images/README.md">images/README.md</a>. Capture: the Python installer's first screen with the "Add python.exe to PATH" box ticked.</sub>
 3. Click **Install Now** and let it finish.
 
 **macOS:** download the macOS installer from the same page and run it, **or** use

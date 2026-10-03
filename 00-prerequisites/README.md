@@ -20,6 +20,29 @@ ones your tier needs:
 
 ---
 
+## What to install — decision tree
+
+_Everyone sets up the first four tools; only the Project 3 expert tier adds AWS, Kiro,
+and an Anthropic key._
+
+```mermaid
+flowchart TD
+    A[Start setup] --> B[Install Python 3.11+ and dependencies]
+    B --> C[Install Git and a code editor]
+    C --> D[Create a UiPath Cloud account]
+    D --> E{Doing the Project 3 expert agentic tier?}
+    E -->|No - all other projects/tiers| F[Done - you have the basics]
+    E -->|Yes - expert only| G[Create an AWS account on the Free plan]
+    G --> H[Install Kiro and sign in]
+    H --> I[Add an Anthropic API key to .env]
+    I --> J[Done - expert setup complete]
+```
+
+> **Note:** the expert AI steps in Projects 1 and 2 also need the **Anthropic API key**,
+> but not AWS or Kiro. Use the tool matrix below to confirm exactly what your tier needs.
+
+---
+
 ## What you need before the session — checklist
 
 Tick each item once it's actually done. The first group is for **everyone**; the rest

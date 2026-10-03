@@ -21,7 +21,8 @@ top stories. That needs an **Anthropic API key**.
 2. Go to **API Keys** (under settings) and **Create Key**. Give it a name like
    `rpa-workshop`.
 
-   > _(screenshot placeholder: Anthropic Console "Create Key" dialog)_
+   ![Anthropic Console Create Key dialog](images/anthropic-create-key.png)
+   <br><sub>Screenshot needed — see <a href="images/README.md">images/README.md</a>. Capture: the Anthropic Console "Create Key" dialog with a key name filled in (do not reveal a real key value).</sub>
 3. **Copy the key immediately** — the console shows the full value only once. It looks
    like `sk-ant-...`.
 4. In the **repo root**, copy the example env file to a real one (the real `.env` is
