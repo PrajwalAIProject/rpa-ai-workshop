@@ -25,6 +25,8 @@ dist/
 *.png
 !**/sample_output.png
 !00-prerequisites/images/*.png
+# UiPath project activity thumbnails under examples/ are part of the project.
+!03-studiox-to-agentic-rpa/examples/**/*.png
 
 # ---- OS cruft ----
 .DS_Store
