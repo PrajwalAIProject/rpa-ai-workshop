@@ -24,6 +24,10 @@ dist/
 # Project 1 writes these at runtime (trend data, AI reports).
 *_trend.json
 *_report.md
+# Project 2 writes these at runtime.
+digest.html
+digest.json
+briefing.md
 # PNGs are generated at runtime; keep committed samples by exception.
 *.png
 !**/sample_output.png

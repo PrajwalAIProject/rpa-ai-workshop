@@ -1,7 +1,7 @@
-# Free AI API key (Project 1 expert)
+# Free AI API key (expert levels of Projects 1 and 2)
 
-The Project 1 expert level sends the stock data to an AI model and gets a report back.
-You need **one free API key**. **No credit card, no AWS account, no payment.**
+The expert levels send data to an AI model and get text back: the stock report in Project 1,
+the morning news briefing in Project 2. You need **one free API key** for both. **No credit card, no AWS account, no payment.**
 
 > **Copilot vs. an API key.** GitHub Copilot is the AI that *helps you write the code*
 > in VS Code. When your finished script runs, it calls an AI model on its own, and that

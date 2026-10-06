@@ -27,7 +27,7 @@ See the full guide: [`00-prerequisites/python-setup.md`](00-prerequisites/python
 
 ## API keys
 
-**Project 1 expert (free Gemini / Groq key):** see
+**Projects 1 and 2 expert (free Gemini / Groq key):** see
 [`00-prerequisites/free-ai-api-key.md`](00-prerequisites/free-ai-api-key.md) and the error
 table in [Project 1 expert](01-stock-market-analyzer/expert/README.md). The usual fixes:
 the `.env` must sit next to the script (not `.env.txt`), the key must be pasted without
@@ -36,16 +36,9 @@ quotes, and on a `429` (free limit) wait a minute or switch `LLM_PROVIDER`.
 **GitHub Copilot (Project 1):** sign-in, Agent mode and monthly-limit fixes are in
 [`00-prerequisites/git-and-editor.md`](00-prerequisites/git-and-editor.md).
 
-**Project 2 expert (Anthropic):** see the full guide:
-[`00-prerequisites/api-keys.md`](00-prerequisites/api-keys.md).
-
-- **"ANTHROPIC_API_KEY is not set"** — The key is missing from `.env`, or `.env` isn't at
-  the repo root. Add the `ANTHROPIC_API_KEY=` line to the root `.env` and re-run.
-- **Authentication error from the API** — The key is wrong, revoked, or truncated.
-  Generate a fresh key in the [Anthropic Console](https://console.anthropic.com/) and
-  paste the whole value.
-- **Rate limit / overloaded errors** — You've hit the free tier's limits. Wait a short
-  while and retry; see the [Project 2 expert](02-morning-news-digest/expert/README.md) README.
+**Project 2 email (Gmail):** `login refused` means you need a Gmail **App Password**
+(2-Step Verification on), not your normal password. See the
+[Project 2 expert](02-morning-news-digest/expert/README.md) README.
 
 ## Network
 

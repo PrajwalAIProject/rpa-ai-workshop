@@ -37,8 +37,8 @@ that sit alongside that ladder.
 1. Set up your tools once, before the session — see
    [`00-prerequisites/README.md`](00-prerequisites/README.md). It walks you through
    Python 3.11+, a GitHub account with VS Code, Git and GitHub Copilot, a free Gemini
-   API key (Project 1 expert), a UiPath Automation Cloud (Community) account (Project 3)
-   and an Anthropic API key (Project 2 expert).
+   API key (expert levels of Projects 1 and 2) and a UiPath Automation Cloud (Community)
+   account (Project 3).
 2. Pick a project below and open its `basic/` README. Work up through the tiers.
 3. All Python packages are listed in
    [`00-prerequisites/requirements.txt`](00-prerequisites/requirements.txt) (in Project 1,
@@ -52,7 +52,7 @@ that sit alongside that ladder.
 | # | Project | Overview | What it teaches |
 | - | ------- | -------- | --------------- |
 | 1 | Stock Market Analyzer | [`01-stock-market-analyzer/README.md`](01-stock-market-analyzer/README.md) | Building with GitHub Copilot (agent-mode prompts in VS Code), company-name → stock lookup, web scraping (requests + BeautifulSoup), an AI-written report from a free AI API (Gemini / Groq) |
-| 2 | Morning News Digest | [`02-morning-news-digest/README.md`](02-morning-news-digest/README.md) | RSS parsing, categorization, markdown/HTML rendering, an LLM "what matters" step, email delivery |
+| 2 | Morning News Digest | [`02-morning-news-digest/README.md`](02-morning-news-digest/README.md) | Built with GitHub Copilot: Indian + world RSS feeds with a topic filter, rule-based categories and an HTML news page, then a free AI editor (Gemini / Groq) that picks what matters, with optional Gmail delivery |
 | 3 | StudioX to Agentic RPA | [`03-studiox-to-agentic-rpa/README.md`](03-studiox-to-agentic-rpa/README.md) | Professional Studio, Orchestrator, queues and retry/escalate, Kiro specs, a runnable watcher agent |
 
 Each project overview summarizes the basic → advanced → expert progression and links
@@ -68,8 +68,8 @@ Copilot a prompt in Agent mode — see
 [`00-prerequisites/git-and-editor.md`](00-prerequisites/git-and-editor.md). The
 **Project 1 expert** level calls a **free AI API** (Google Gemini, or Groq) — no credit
 card, no AWS — see [`00-prerequisites/free-ai-api-key.md`](00-prerequisites/free-ai-api-key.md).
-UiPath Automation Cloud (Community) is for Project 3; the Project 2 expert level needs an
-Anthropic API key; Project 3 expert optionally uses Kiro and AWS.
+Project 2 (news digest) uses the same Copilot workflow and the same free key. UiPath
+Automation Cloud (Community) is for Project 3; Project 3 expert optionally uses Kiro and AWS.
 
 The full checklist, decision tree, and per-tool matrix live in
 [`00-prerequisites/README.md`](00-prerequisites/README.md).

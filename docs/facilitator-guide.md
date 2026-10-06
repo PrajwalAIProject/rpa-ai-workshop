@@ -30,7 +30,7 @@ for students who want Python/cloud breadth.
 - [ ] Confirm the room has **reliable internet for 40+ laptops** hitting UiPath Cloud,
       GitHub, AWS, and an LLM API at the same time.
 - [ ] Send **signup links at least 2 days ahead**: UiPath Automation Cloud (Community),
-      the Anthropic API key steps, the Kiro download, and — only for students hosting the
+      the free Gemini API key steps, GitHub Education (Copilot Student), the Kiro download, and — only for students hosting the
       watcher on AWS — a card-free AWS path (Student Rewards or Educate). Point everyone at
       [`00-prerequisites/README.md`](../00-prerequisites/README.md) so setup is done
       before the session, not live in the room.

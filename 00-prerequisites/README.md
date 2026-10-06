@@ -23,7 +23,7 @@ laptops download at once, and some steps (GitHub Education approval) take days.
 
 - [ ] **GitHub** account, and apply for **GitHub Education** (Copilot Student) with your
       college email or ID card. Approval can take 1–3 days.
-- [ ] **Google** account, for the free Gemini API key (Project 1 expert).
+- [ ] **Google** account, for the free Gemini API key (expert levels of Projects 1 and 2).
 - [ ] **UiPath Automation Cloud (Community)** account (Project 3).
 - [ ] *(Optional)* **Groq** account as a backup AI key.
 
@@ -36,7 +36,7 @@ laptops download at once, and some steps (GitHub Education approval) take days.
       (Project 3) — [`uipath-cloud.md`](uipath-cloud.md)
 - [ ] The **workshop repo** on your laptop (see below)
 - [ ] The **Python packages** installed: `pip install -r 00-prerequisites/requirements.txt`
-- [ ] A **`.env`** file with your **Gemini key** (Project 1 expert) — [`free-ai-api-key.md`](free-ai-api-key.md)
+- [ ] A **`.env`** file with your **Gemini key** (expert levels of Projects 1 and 2) — [`free-ai-api-key.md`](free-ai-api-key.md)
 
 **Get the workshop repo:** in VS Code, **View → Command Palette → Git: Clone**, paste
 `https://github.com/PrajwalAIProject/rpa-ai-workshop.git`, choose a folder, and open it.
@@ -56,11 +56,12 @@ python --version
 git --version
 python 01-stock-market-analyzer/basic/company_info.py "Infosys"
 python 01-stock-market-analyzer/expert/ai_stock_report.py "Infosys" --dry-run
+python 02-morning-news-digest/basic/news_digest.py cricket
 ```
 
-You should see Python 3.11+, a Git version, an Infosys stock block, and a printed AI
-prompt. Then, in Copilot Chat (Agent mode), ask it to *"create hello.py that prints
-Copilot works, then run it"*. If all five work, your laptop is ready. If not, check the
+You should see Python 3.11+, a Git version, an Infosys stock block, a printed AI prompt,
+and the latest cricket headlines. Then, in Copilot Chat (Agent mode), ask it to *"create hello.py that prints
+Copilot works, then run it"*. If all six work, your laptop is ready. If not, check the
 guide for that step or ask your instructor **before** the day.
 
 ---
@@ -69,9 +70,8 @@ This folder is an index. Each setup task has its own short guide:
 
 - [`python-setup.md`](python-setup.md) — Python 3.11+ (and an optional virtual environment)
 - [`git-and-editor.md`](git-and-editor.md) — **GitHub account, VS Code, Git and GitHub Copilot** (the AI that writes the Project 1 code with you)
-- [`free-ai-api-key.md`](free-ai-api-key.md) — a **free** Gemini (or Groq) API key for the Project 1 expert AI report, with no card needed
+- [`free-ai-api-key.md`](free-ai-api-key.md) — a **free** Gemini (or Groq) API key for the expert AI levels of Projects 1 and 2, with no card needed
 - [`uipath-cloud.md`](uipath-cloud.md) — UiPath Automation Cloud (Community), Project 3
-- [`api-keys.md`](api-keys.md) — Anthropic API key, Project 2 expert
 - [`kiro-install.md`](kiro-install.md) and [`aws-free-tier.md`](aws-free-tier.md) — Project 3 expert only (optional)
 
 > **Heads-up:** GitHub, Google and Groq change their plans and screens often. Every
@@ -117,7 +117,7 @@ flowchart TD
 - [ ] A free **Gemini API key** (or Groq) in a `.env` file in your project folder. See
       [`free-ai-api-key.md`](free-ai-api-key.md).
 
-**Project 2 expert:** an Anthropic API key, see [`api-keys.md`](api-keys.md).
+**Project 2 expert:** the same free Gemini key. Optional email delivery needs a Gmail App Password (see the [Project 2 expert README](../02-morning-news-digest/expert/README.md)).
 
 **Project 3:** a free **UiPath Automation Cloud (Community)** account, see
 [`uipath-cloud.md`](uipath-cloud.md).
@@ -126,19 +126,19 @@ flowchart TD
 
 ## Which tool does each project need?
 
-| Project / level | Python | VS Code + GitHub Copilot | Free AI key (Gemini/Groq) | UiPath Cloud | Anthropic key |
-| --------------- | :----: | :----------------------: | :-----------------------: | :----------: | :-----------: |
-| **1** Stock — basic | ✅ | ✅ | — | — | — |
-| **1** Stock — advanced (web scraping) | ✅ | ✅ | — | — | — |
-| **1** Stock — expert (AI report) | ✅ | ✅ | ✅ | — | — |
-| **2** News — basic / advanced | ✅ | ✅ | — | — | — |
-| **2** News — expert | ✅ | ✅ | — | — | ✅ |
-| **3** RPA — basic / advanced | ✅ | — | — | ✅ | — |
-| **3** RPA — expert (agentic) | ✅ | — | — | ✅ | — |
+| Project / level | Python | VS Code + GitHub Copilot | Free AI key (Gemini/Groq) | UiPath Cloud |
+| --------------- | :----: | :----------------------: | :-----------------------: | :----------: |
+| **1** Stock — basic | ✅ | ✅ | — | — | |
+| **1** Stock — advanced (web scraping) | ✅ | ✅ | — | — | |
+| **1** Stock — expert (AI report) | ✅ | ✅ | ✅ | — | |
+| **2** News — basic / advanced (RSS, HTML page) | ✅ | ✅ | — | — |
+| **2** News — expert (AI editor) | ✅ | ✅ | ✅ | — |
+| **3** RPA — basic / advanced | ✅ | — | — | ✅ | |
+| **3** RPA — expert (agentic) | ✅ | — | — | ✅ | |
 
-**No AWS account and no credit card are needed for Project 1.**
+**No AWS account and no credit card are needed for Projects 1 and 2.**
 
-**Python packages:** in Project 1, Copilot installs what each script needs (it runs
+**Python packages:** in Projects 1 and 2, Copilot installs what each script needs (it runs
 `pip install ...` and asks you first). To install everything up front instead, run
 `pip install -r 00-prerequisites/requirements.txt`; see [`python-setup.md`](python-setup.md).
 
@@ -148,9 +148,9 @@ flowchart TD
 
 1. [Python](python-setup.md)
 2. [GitHub account → VS Code → Git → Copilot](git-and-editor.md) (apply for GitHub Education early)
-3. [Free AI API key](free-ai-api-key.md), for the Project 1 expert level
-4. [UiPath Cloud](uipath-cloud.md) (Project 3), [Anthropic key](api-keys.md) (Project 2 expert)
+3. [Free AI API key](free-ai-api-key.md), for the expert levels of Projects 1 and 2
+4. [UiPath Cloud](uipath-cloud.md) (Project 3)
 
-Secrets (the Gemini/Groq key, the Anthropic key, SMTP passwords) go **only** in a local
+Secrets (the Gemini/Groq key, the Gmail App Password) go **only** in a local
 `.env` file, which is git-ignored. Copy [`.env.example`](../.env.example) to `.env` and
 fill in your own values. **Never commit real keys and never paste them into Copilot Chat.**

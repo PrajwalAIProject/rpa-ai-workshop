@@ -11,6 +11,5 @@ beautifulsoup4>=4.12     # advanced: parse the HTML
 openai>=1.40             # expert: free Gemini / Groq API (OpenAI-compatible)
 python-dotenv>=1.0       # expert: read the key from .env
 
-# ---- Project 2: morning news digest ----
-feedparser==6.0.11
-anthropic==0.39.0
+# ---- Project 2: morning news digest (also uses requests, openai, python-dotenv) ----
+feedparser>=6.0

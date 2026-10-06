@@ -18,8 +18,8 @@ stock, RSS, and LLM APIs.
 
 ### API key
 
-A secret string that identifies and authorizes your calls to an API (like the Anthropic
-key the expert tiers use). Keep it in your local `.env` and never commit it.
+A secret string that identifies and authorizes your calls to an API (like the free Gemini
+key the expert levels use). Keep it in your local `.env` and never commit it.
 
 ### Attended vs unattended robot
 
@@ -71,8 +71,8 @@ GitHub, Google, an AWS Builder ID, or AWS IAM Identity Center; see
 ### LLM
 
 Large Language Model — an AI model trained on large amounts of text that generates and
-reasons over natural language. The expert tiers call an LLM (Anthropic Claude) to write
-commentary and pick what matters.
+reasons over natural language. The expert levels call an LLM (Google Gemini, or Groq) to write
+the stock report and pick the news that matters.
 
 ### MFA
 

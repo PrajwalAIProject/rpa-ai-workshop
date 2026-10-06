@@ -110,10 +110,9 @@ That installs everything used across all three projects.
 | `yfinance` | Project 1 (all levels) | Finds a company's stock symbol and downloads its prices (installs `pandas` too). |
 | `requests` | Project 1 (advanced) | Downloads the web page to scrape. |
 | `beautifulsoup4` | Project 1 (advanced) | Reads values out of the page's HTML (imported as `bs4`). |
-| `openai` | Project 1 (expert) | Talks to the free AI API (Gemini or Groq, both OpenAI-compatible). |
+| `openai` | Projects 1 & 2 (expert) | Talks to the free AI API (Gemini or Groq, both OpenAI-compatible). |
 | `python-dotenv` | Projects 1 & 2 (expert) | Loads secrets from your local `.env` file. |
 | `feedparser` | Project 2 | Reads RSS news feeds. |
-| `anthropic` | Project 2 (expert) | Official client for the Claude API. |
 
 ---
 
@@ -123,7 +122,7 @@ That installs everything used across all three projects.
 2. If you installed everything up front, this smoke test prints `all imports OK`:
 
    ```bash
-   python -c "import yfinance, requests, bs4, openai, dotenv, feedparser, anthropic; print('all imports OK')"
+   python -c "import yfinance, requests, bs4, openai, dotenv, feedparser; print('all imports OK')"
    ```
 
 ---

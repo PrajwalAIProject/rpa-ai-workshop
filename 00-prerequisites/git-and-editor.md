@@ -1,6 +1,6 @@
 # VS Code, Git, GitHub and GitHub Copilot
 
-In Project 1 you don't type the code yourself. You give **GitHub Copilot** (an AI
+In Projects 1 and 2 you don't type the code yourself. You give **GitHub Copilot** (an AI
 assistant inside VS Code) a clear prompt. It writes the Python script, runs it in the
 terminal, and fixes its own errors. This guide sets up the four things that needs:
 
