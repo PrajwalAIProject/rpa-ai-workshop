@@ -1,156 +1,201 @@
-# 00 — Prerequisites
+# Get your laptop ready
 
-Set this up **before** the workshop. Doing it live eats into lab time, so arrive with
-the checklist below ticked.
+Do this **at home, 2–3 days before the workshop**. It takes about **1 hour**, plus a
+few days' wait for GitHub Education approval. College Wi-Fi is slow when 60 laptops
+download at once, so don't leave it for the day.
 
-## Bring your laptop ready — one-page checklist
+Work through the steps **in order**. Each step ends with a **check**. When every check
+passes, your laptop is ready.
 
-Do this **at home, 2–3 days before** the workshop. College Wi-Fi is slow when 60
-laptops download at once, and some steps (GitHub Education approval) take days.
+| Step | What you do | Time | Needed for |
+| :--: | ----------- | :--: | ---------- |
+| 1 | [Check your laptop](#step-1--check-your-laptop) | 5 min | Everything |
+| 2 | [Create free accounts](#step-2--create-free-accounts) | 15 min | Everything |
+| 3 | [Install the software](#step-3--install-the-software) | 30 min | Everything |
+| 4 | [Get the workshop repo](#step-4--get-the-workshop-repo) | 2 min | Everything |
+| 5 | [Install the Python packages](#step-5--install-the-python-packages) | 3 min | Projects 1 and 2 |
+| 6 | [Add your free AI key](#step-6--add-your-free-ai-key) | 5 min | Projects 1 and 2, expert level |
+| 7 | [Run the night-before test](#step-7--run-the-night-before-test) | 5 min | Everything |
 
-**Your laptop**
+> Everything here is **free** and needs **no credit card**. You do **not** need an AWS
+> account for Projects 1 and 2.
 
-- [ ] **Windows 10 or 11 (64-bit)** recommended. UiPath Studio (Project 3) runs only on
-      Windows; Projects 1 and 2 also work on macOS or Linux.
+---
+
+## Step 1 — Check your laptop
+
+- [ ] **Windows 10 or 11 (64-bit)**. UiPath Studio (Project 3) runs only on Windows.
+      Projects 1 and 2 also work on macOS or Linux.
 - [ ] At least **8 GB RAM** and **10 GB free disk space**.
-- [ ] You can **install software** (administrator rights). College-managed laptops often
-      block this: check early.
-- [ ] **Charger** packed (it's a 5-hour session) and the laptop fully updated.
-- [ ] A **phone** with you: for sign-in codes, and as a **mobile hotspot** if the lab
-      network blocks something.
+- [ ] You can **install software** (administrator rights). College-managed laptops
+      often block this, so check early.
+- [ ] Windows is **up to date**.
+- [ ] On the day, bring your **charger** (the session is 5 hours) and your **phone**
+      (sign-in codes, and a mobile hotspot if the lab network blocks something).
 
-**Accounts (all free, no credit card)**
+## Step 2 — Create free accounts
 
-- [ ] **GitHub** account, and apply for **GitHub Education** (Copilot Student) with your
-      college email or ID card. Approval can take 1–3 days.
-- [ ] **Google** account, for the free Gemini API key (expert levels of Projects 1 and 2).
-- [ ] **UiPath Automation Cloud (Community)** account (Project 3).
-- [ ] *(Optional)* **Groq** account as a backup AI key.
+| Account | Used for | Sign up at | Note |
+| ------- | -------- | ---------- | ---- |
+| **GitHub** | Signing in to VS Code and GitHub Copilot, saving your code | [github.com/signup](https://github.com/signup) | Pick a professional username. Recruiters will see it. |
+| **GitHub Education** *(recommended)* | The **Copilot Student** plan, with more AI usage than Copilot Free | [education.github.com/pack](https://education.github.com/pack) | Apply with your college email or ID card. **Approval takes 1–3 days**, so apply first. Copilot Free is enough if you're not approved in time. |
+| **Google** | The free Gemini AI key (Step 6) | [accounts.google.com](https://accounts.google.com/) | Your normal Gmail account works. |
+| **UiPath Automation Cloud (Community)** | UiPath Studio and Orchestrator (Project 3) | [cloud.uipath.com](https://cloud.uipath.com/) | Choose the free **Community** plan. Turn on MFA. Details: [`uipath-cloud.md`](uipath-cloud.md) |
+| **Groq** *(optional)* | A backup free AI key | [console.groq.com](https://console.groq.com/) | Only if Gemini doesn't work for you. |
 
-**Installed and working**
+**Check:** you can sign in to GitHub, Google and UiPath Cloud, and your GitHub
+Education application is submitted.
 
-- [ ] **Python 3.11+**, with "Add python.exe to PATH" ticked — [`python-setup.md`](python-setup.md)
-- [ ] **VS Code** + the **Python** extension, **Git**, VS Code **signed in to GitHub**, **Copilot
-      Chat in Agent mode** — [`git-and-editor.md`](git-and-editor.md)
-- [ ] **UiPath Studio** (desktop) installed and signed in to your Community account
-      (Project 3) — [`uipath-cloud.md`](uipath-cloud.md)
-- [ ] The **workshop repo** on your laptop (see below)
-- [ ] The **Python packages** installed: `pip install -r 00-prerequisites/requirements.txt`
-- [ ] A **`.env`** file with your **Gemini key** (expert levels of Projects 1 and 2) — [`free-ai-api-key.md`](free-ai-api-key.md)
+## Step 3 — Install the software
 
-**Get the workshop repo:** in VS Code, **View → Command Palette → Git: Clone**, paste
-`https://github.com/PrajwalAIProject/rpa-ai-workshop.git`, choose a folder, and open it.
-Or, in a terminal:
+Install in this order. Open a **new** terminal after each install so it sees the change.
+
+| # | Install | Download | Don't miss | Check (in a new terminal) | Full guide |
+| :-: | ------- | -------- | ---------- | ------------------------- | ---------- |
+| 1 | **Python 3.11 or newer** | [python.org/downloads](https://www.python.org/downloads/) | Tick **"Add python.exe to PATH"** on the first installer screen | `python --version` shows 3.11 or higher | [`python-setup.md`](python-setup.md) |
+| 2 | **VS Code** | [code.visualstudio.com](https://code.visualstudio.com/) | Tick **"Add to PATH"** and **"Open with Code"**. Then install the **Python** extension (by Microsoft) | `code --version` | [`git-and-editor.md`](git-and-editor.md#2-install-vs-code) |
+| 3 | **Git** | [git-scm.com/download/win](https://git-scm.com/download/win) | Keep the default options. Then set your name and email (see below) | `git --version` | [`git-and-editor.md`](git-and-editor.md#3-install-git) |
+| 4 | **GitHub Copilot** (inside VS Code) | Built into VS Code | Sign in with GitHub (Accounts icon, bottom left), open **Chat**, and set the mode to **Agent** | Copilot Chat answers you | [`git-and-editor.md`](git-and-editor.md#4-sign-in-to-github-from-vs-code) |
+| 5 | **UiPath Studio** (desktop, Windows only) | Inside [cloud.uipath.com](https://cloud.uipath.com/) → **Download Studio** | Sign in with your Community account when Studio opens. The installer is large, so do this at home | Studio opens and shows you signed in | [`uipath-cloud.md`](uipath-cloud.md#steps) |
+
+After installing Git, set your identity once. Use your GitHub account's email:
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+```
+
+**Check, Copilot:** in VS Code, open an empty folder (for example `C:\stock-project`),
+open Copilot Chat in **Agent** mode, and type:
+
+```text
+Create hello.py that prints "Copilot works", then run it.
+```
+
+Allow it to run the command. The terminal should print `Copilot works`.
+
+## Step 4 — Get the workshop repo
+
+In VS Code: **View → Command Palette → Git: Clone**, paste the address below, choose a
+folder (a short path such as `C:\dev` works best) and open it.
+
+```text
+https://github.com/PrajwalAIProject/rpa-ai-workshop.git
+```
+
+Or in a terminal:
 
 ```bash
 git clone https://github.com/PrajwalAIProject/rpa-ai-workshop.git
 ```
 
-(No Git yet? On the GitHub page click **Code → Download ZIP** and unzip it.)
+No Git yet? On the GitHub page click **Code → Download ZIP** and unzip it.
 
-**The night before — 5-minute test.** Open the repo folder in VS Code, open a terminal
-(**Terminal → New Terminal**), and run:
+**Check:** VS Code shows the `rpa-ai-workshop` folder with `00-prerequisites`,
+`01-stock-market-analyzer`, `02-morning-news-digest` and `03-studiox-to-agentic-rpa`.
+
+## Step 5 — Install the Python packages
+
+In VS Code, open the repo folder, then **Terminal → New Terminal**, and run:
 
 ```bash
-python --version
-git --version
-python 01-stock-market-analyzer/basic/company_info.py "Infosys"
-python 01-stock-market-analyzer/expert/ai_stock_report.py "Infosys" --dry-run
-python 02-morning-news-digest/basic/news_digest.py cricket
+python -m pip install --upgrade pip
+pip install -r 00-prerequisites/requirements.txt
 ```
 
-You should see Python 3.11+, a Git version, an Infosys stock block, a printed AI prompt,
-and the latest cricket headlines. Then, in Copilot Chat (Agent mode), ask it to *"create hello.py that prints
-Copilot works, then run it"*. If all six work, your laptop is ready. If not, check the
-guide for that step or ask your instructor **before** the day.
+This installs everything Projects 1 and 2 use:
 
----
+| Package | What it does |
+| ------- | ------------ |
+| `yfinance` | Finds a company's stock symbol and downloads its prices |
+| `requests` | Downloads web pages and news feeds |
+| `beautifulsoup4` | Reads values out of a web page (web scraping) |
+| `feedparser` | Reads RSS news feeds |
+| `openai` | Talks to the free AI service (Gemini or Groq) |
+| `python-dotenv` | Loads your secret key from the `.env` file |
 
-This folder is an index. Each setup task has its own short guide:
+*(Optional: create a virtual environment first, so these packages stay separate. See
+[`python-setup.md`](python-setup.md#3-create-and-activate-a-virtual-environment).)*
 
-- [`python-setup.md`](python-setup.md) — Python 3.11+ (and an optional virtual environment)
-- [`git-and-editor.md`](git-and-editor.md) — **GitHub account, VS Code, Git and GitHub Copilot** (the AI that writes the Project 1 code with you)
-- [`free-ai-api-key.md`](free-ai-api-key.md) — a **free** Gemini (or Groq) API key for the expert AI levels of Projects 1 and 2, with no card needed
-- [`uipath-cloud.md`](uipath-cloud.md) — UiPath Automation Cloud (Community), Project 3
-- [`kiro-install.md`](kiro-install.md) and [`aws-free-tier.md`](aws-free-tier.md) — Project 3 expert only (optional)
+**Check:** this prints `all imports OK`:
 
-> **Heads-up:** GitHub, Google and Groq change their plans and screens often. Every
-> fact below was checked in October 2026; **confirm current details on the official
-> pages linked in each guide before the session.**
-
----
-
-## Project 1 in one picture
-
-_Project 1 (stock market analyzer) needs Python, VS Code and a GitHub account with
-Copilot. The expert level adds one free AI API key._
-
-```mermaid
-flowchart TD
-    A[Install Python 3.11+] --> B[GitHub account + VS Code + Git]
-    B --> C[Sign in to GitHub in VS Code, turn on Copilot - Agent mode]
-    C --> D[Basic: company name to stock info]
-    D --> E[Advanced: full trend with web scraping]
-    E --> F{Doing the expert level?}
-    F -->|No| G[Done]
-    F -->|Yes| H[Get a free Gemini API key - no card]
-    H --> I[Expert: AI-written stock report]
+```bash
+python -c "import yfinance, requests, bs4, openai, dotenv, feedparser; print('all imports OK')"
 ```
 
----
+## Step 6 — Add your free AI key
 
-## Checklist
+The **expert** levels of Projects 1 and 2 call an AI model, which needs a free key.
 
-**Everyone:**
+1. Open [aistudio.google.com/apikey](https://aistudio.google.com/apikey), sign in with
+   Google, click **Create API key** and copy it (it starts with `AIza`).
+2. In the repo folder, copy `.env.example` to a new file named exactly **`.env`**.
+3. Paste your key after `GEMINI_API_KEY=`:
 
-- [ ] **Python 3.11 or newer** installed and on your PATH: `python --version` works.
-      See [`python-setup.md`](python-setup.md).
-- [ ] A **GitHub account**. Students: also apply for **GitHub Education** (Copilot
-      Student). It can take 1–3 days. See [`git-and-editor.md`](git-and-editor.md).
-- [ ] **VS Code** and **Git** installed, VS Code **signed in to GitHub**, and
-      **Copilot Chat** working in **Agent** mode (the `hello.py` test in
-      [`git-and-editor.md`](git-and-editor.md) passes).
-- [ ] An empty project folder, e.g. `C:\stock-project`, opened in VS Code.
+   ```text
+   LLM_PROVIDER=gemini
+   GEMINI_API_KEY=paste-your-key-here
+   ```
 
-**Project 1 expert (AI report):**
+Full guide, plus the Groq backup: [`free-ai-api-key.md`](free-ai-api-key.md).
 
-- [ ] A free **Gemini API key** (or Groq) in a `.env` file in your project folder. See
-      [`free-ai-api-key.md`](free-ai-api-key.md).
+> **Keep your key secret.** It goes **only** in `.env` (Git ignores that file).
+> Never paste it into Copilot Chat, WhatsApp or a screenshot, and never commit it.
 
-**Project 2 expert:** the same free Gemini key. Optional email delivery needs a Gmail App Password (see the [Project 2 expert README](../02-morning-news-digest/expert/README.md)).
+**Check:** the expert dry run in Step 7 prints an AI prompt without errors.
 
-**Project 3:** a free **UiPath Automation Cloud (Community)** account, see
-[`uipath-cloud.md`](uipath-cloud.md).
+## Step 7 — Run the night-before test
 
----
+Open the repo folder in VS Code, open a terminal (**Terminal → New Terminal**) and run
+these one at a time:
 
-## Which tool does each project need?
+| Run this | You should see |
+| -------- | -------------- |
+| `python --version` | `Python 3.11` or higher |
+| `git --version` | A Git version number |
+| `python 01-stock-market-analyzer/basic/company_info.py "Infosys"` | Infosys stock details (symbol, price) |
+| `python 01-stock-market-analyzer/expert/ai_stock_report.py "Infosys" --dry-run` | The AI prompt the script would send |
+| `python 02-morning-news-digest/basic/news_digest.py cricket` | Today's cricket headlines |
+| Copilot Chat (Agent mode): *"Create hello.py that prints Copilot works, then run it."* | `Copilot works` in the terminal |
 
-| Project / level | Python | VS Code + GitHub Copilot | Free AI key (Gemini/Groq) | UiPath Cloud |
-| --------------- | :----: | :----------------------: | :-----------------------: | :----------: |
-| **1** Stock — basic | ✅ | ✅ | — | — | |
-| **1** Stock — advanced (web scraping) | ✅ | ✅ | — | — | |
-| **1** Stock — expert (AI report) | ✅ | ✅ | ✅ | — | |
-| **2** News — basic / advanced (RSS, HTML page) | ✅ | ✅ | — | — |
-| **2** News — expert (AI editor) | ✅ | ✅ | ✅ | — |
-| **3** RPA — basic / advanced | ✅ | — | — | ✅ | |
-| **3** RPA — expert (agentic) | ✅ | — | — | ✅ | |
-
-**No AWS account and no credit card are needed for Projects 1 and 2.**
-
-**Python packages:** in Projects 1 and 2, Copilot installs what each script needs (it runs
-`pip install ...` and asks you first). To install everything up front instead, run
-`pip install -r 00-prerequisites/requirements.txt`; see [`python-setup.md`](python-setup.md).
+**All six work? Your laptop is ready.** If one fails, open the guide for that step or
+[`TROUBLESHOOTING.md`](../TROUBLESHOOTING.md), and message your instructor **before**
+the workshop day.
 
 ---
 
-## Order to do it in
+## What each project needs
 
-1. [Python](python-setup.md)
-2. [GitHub account → VS Code → Git → Copilot](git-and-editor.md) (apply for GitHub Education early)
-3. [Free AI API key](free-ai-api-key.md), for the expert levels of Projects 1 and 2
-4. [UiPath Cloud](uipath-cloud.md) (Project 3)
+| Project and level | Python | VS Code + Copilot | Free AI key | UiPath Studio + Cloud |
+| ----------------- | :----: | :---------------: | :---------: | :-------------------: |
+| **1** Stock analyzer: basic and advanced | ✅ | ✅ | — | — |
+| **1** Stock analyzer: expert (AI report) | ✅ | ✅ | ✅ | — |
+| **2** News digest: basic and advanced | ✅ | ✅ | — | — |
+| **2** News digest: expert (AI editor) | ✅ | ✅ | ✅ | — |
+| **3** StudioX to agentic RPA: basic and advanced | ✅ | — | — | ✅ |
+| **3** StudioX to agentic RPA: expert (watcher agent) | ✅ | — | — | ✅ |
 
-Secrets (the Gemini/Groq key, the Gmail App Password) go **only** in a local
-`.env` file, which is git-ignored. Copy [`.env.example`](../.env.example) to `.env` and
-fill in your own values. **Never commit real keys and never paste them into Copilot Chat.**
+**Optional extras:**
+
+- **Gmail App Password**: only to email the Project 2 briefing to yourself. See the
+  [Project 2 expert README](../02-morning-news-digest/expert/README.md).
+- **Kiro** and an **AWS** account: only for the optional Kiro part of Project 3 expert.
+  See [`kiro-install.md`](kiro-install.md) and [`aws-free-tier.md`](aws-free-tier.md).
+  Skip them unless your instructor asks.
+
+## Quick fixes
+
+| Problem | Fix |
+| ------- | --- |
+| `'python' is not recognized` | Re-run the Python installer, choose **Modify**, and tick **"Add python.exe to PATH"**. Or use `py` instead of `python`. Then open a new terminal. |
+| `'git' is not recognized` | Close and reopen VS Code after installing Git. |
+| `pip install` fails on college Wi-Fi | Use your phone's hotspot, and run `python -m pip install --upgrade pip` first. |
+| No Copilot icon or Chat panel | Update VS Code (**Help → Check for Updates**) and install **GitHub Copilot Chat** from Extensions. |
+| Copilot writes code but doesn't run it | Switch the Chat mode drop-down to **Agent**. |
+| "You've reached your monthly chat limit" | Copilot Free gives 50 chat requests a month. Save them for the lab, and apply for GitHub Education. |
+| UiPath Studio opens as StudioX | Choose the **Studio** profile when it starts, or switch profiles in its settings. |
+
+More fixes: [`TROUBLESHOOTING.md`](../TROUBLESHOOTING.md).
+
+> Plans and screens for GitHub, Google, Groq and UiPath change often. These details were
+> checked in October 2026; if a screen looks different, follow the official page.

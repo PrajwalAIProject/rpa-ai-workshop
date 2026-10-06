@@ -11,9 +11,25 @@ cloud scheduling, and finally an **agentic AI** layer authored with Kiro.
 Three projects, three tiers each (**basic → advanced → expert**). Nobody has to hit
 "expert" on all three — depth over breadth.
 
+## Students: get your laptop ready first
+
+> **Do this 2–3 days before the workshop** → **[Get your laptop ready](00-prerequisites/README.md)**
+> (about 1 hour, 7 steps, everything free, no credit card).
+
+| Step | What | Check |
+| :--: | ---- | ----- |
+| 1 | Laptop: Windows 10/11, 8 GB RAM, 10 GB free, admin rights | — |
+| 2 | Free accounts: **GitHub** (+ apply for **GitHub Education**, takes 1–3 days), **Google**, **UiPath Community** | You can sign in to each |
+| 3 | Install: **Python 3.11+** → **VS Code** → **Git** → **GitHub Copilot** (Agent mode) → **UiPath Studio** | `python --version`, `git --version` |
+| 4 | Get this repo: `git clone https://github.com/PrajwalAIProject/rpa-ai-workshop.git` | The folder opens in VS Code |
+| 5 | Python packages: `pip install -r 00-prerequisites/requirements.txt` | `all imports OK` |
+| 6 | Free **Gemini** AI key in a `.env` file | The expert dry run works |
+| 7 | The night-before test | All six checks pass |
+
 ## Who this is for
 
-- **Students** working through the labs — start at [Start here](#start-here).
+- **Students** working through the labs — get your laptop ready
+  ([`00-prerequisites/README.md`](00-prerequisites/README.md)), then pick a project below.
 - **Facilitators** running the session — see [`docs/facilitator-guide.md`](docs/facilitator-guide.md).
 - **Faculty** checking how this extends BCG701 — see [`docs/course-alignment.md`](docs/course-alignment.md).
 - **Contributors** improving the repo — see [`CONTRIBUTING.md`](CONTRIBUTING.md).
@@ -32,17 +48,10 @@ StudioX did the recording, Studio and Orchestrator do the running, and the agent
 the judging. Projects 1 and 2 add the Python, external-API, and cloud-scheduling skills
 that sit alongside that ladder.
 
-## Start here
+## On the day
 
-1. Set up your tools once, before the session — see
-   [`00-prerequisites/README.md`](00-prerequisites/README.md). It walks you through
-   Python 3.11+, a GitHub account with VS Code, Git and GitHub Copilot, a free Gemini
-   API key (expert levels of Projects 1 and 2) and a UiPath Automation Cloud (Community)
-   account (Project 3).
+1. Open the repo folder in VS Code.
 2. Pick a project below and open its `basic/` README. Work up through the tiers.
-3. All Python packages are listed in
-   [`00-prerequisites/requirements.txt`](00-prerequisites/requirements.txt) (in Project 1,
-   GitHub Copilot installs them for you as it goes).
 
 > **Heads-up:** GitHub, Google, UiPath and other services change their terms, pricing and screens often —
 > confirm current details on the official pages before the session.
@@ -59,21 +68,6 @@ Each project overview summarizes the basic → advanced → expert progression a
 every tier README. Each tier README follows the same four-part shape: **What you'll
 build → Prerequisites → Step-by-step setup → Common errors and fixes.**
 
-## Prerequisites in brief
-
-Everyone needs **Python 3.11+**, a **GitHub account**, and **VS Code + Git** signed in
-to GitHub with **GitHub Copilot** (Copilot Free works; verified students can get Copilot
-Student through GitHub Education). In Project 1 you build every script by giving
-Copilot a prompt in Agent mode — see
-[`00-prerequisites/git-and-editor.md`](00-prerequisites/git-and-editor.md). The
-**Project 1 expert** level calls a **free AI API** (Google Gemini, or Groq) — no credit
-card, no AWS — see [`00-prerequisites/free-ai-api-key.md`](00-prerequisites/free-ai-api-key.md).
-Project 2 (news digest) uses the same Copilot workflow and the same free key. UiPath
-Automation Cloud (Community) is for Project 3; Project 3 expert optionally uses Kiro and AWS.
-
-The full checklist, decision tree, and per-tool matrix live in
-[`00-prerequisites/README.md`](00-prerequisites/README.md).
-
 ## Repo map
 
 ```
@@ -87,7 +81,7 @@ rpa-ai-workshop/
 ├── docs/
 │   ├── facilitator-guide.md      ← practical instructor guide
 │   └── course-alignment.md       ← BCG701 CO-1..CO-5 mapping
-├── 00-prerequisites/             ← setup index + focused per-tool guides
+├── 00-prerequisites/             ← get your laptop ready (7 steps) + per-tool guides
 ├── 01-stock-market-analyzer/     ← basic / advanced / expert
 ├── 02-morning-news-digest/       ← basic / advanced / expert
 ├── 03-studiox-to-agentic-rpa/    ← basic / advanced / expert
