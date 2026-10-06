@@ -3,6 +3,68 @@
 Set this up **before** the workshop. Doing it live eats into lab time, so arrive with
 the checklist below ticked.
 
+## Bring your laptop ready — one-page checklist
+
+Do this **at home, 2–3 days before** the workshop. College Wi-Fi is slow when 60
+laptops download at once, and some steps (GitHub Education approval) take days.
+
+**Your laptop**
+
+- [ ] **Windows 10 or 11 (64-bit)** recommended. UiPath Studio (Project 3) runs only on
+      Windows; Projects 1 and 2 also work on macOS or Linux.
+- [ ] At least **8 GB RAM** and **10 GB free disk space**.
+- [ ] You can **install software** (administrator rights). College-managed laptops often
+      block this: check early.
+- [ ] **Charger** packed (it's a 5-hour session) and the laptop fully updated.
+- [ ] A **phone** with you: for sign-in codes, and as a **mobile hotspot** if the lab
+      network blocks something.
+
+**Accounts (all free, no credit card)**
+
+- [ ] **GitHub** account, and apply for **GitHub Education** (Copilot Student) with your
+      college email or ID card. Approval can take 1–3 days.
+- [ ] **Google** account, for the free Gemini API key (Project 1 expert).
+- [ ] **UiPath Automation Cloud (Community)** account (Project 3).
+- [ ] *(Optional)* **Groq** account as a backup AI key.
+
+**Installed and working**
+
+- [ ] **Python 3.11+**, with "Add python.exe to PATH" ticked — [`python-setup.md`](python-setup.md)
+- [ ] **VS Code** + the **Python** extension, **Git**, VS Code **signed in to GitHub**, **Copilot
+      Chat in Agent mode** — [`git-and-editor.md`](git-and-editor.md)
+- [ ] **UiPath Studio** (desktop) installed and signed in to your Community account
+      (Project 3) — [`uipath-cloud.md`](uipath-cloud.md)
+- [ ] The **workshop repo** on your laptop (see below)
+- [ ] The **Python packages** installed: `pip install -r 00-prerequisites/requirements.txt`
+- [ ] A **`.env`** file with your **Gemini key** (Project 1 expert) — [`free-ai-api-key.md`](free-ai-api-key.md)
+
+**Get the workshop repo:** in VS Code, **View → Command Palette → Git: Clone**, paste
+`https://github.com/PrajwalAIProject/rpa-ai-workshop.git`, choose a folder, and open it.
+Or, in a terminal:
+
+```bash
+git clone https://github.com/PrajwalAIProject/rpa-ai-workshop.git
+```
+
+(No Git yet? On the GitHub page click **Code → Download ZIP** and unzip it.)
+
+**The night before — 5-minute test.** Open the repo folder in VS Code, open a terminal
+(**Terminal → New Terminal**), and run:
+
+```bash
+python --version
+git --version
+python 01-stock-market-analyzer/basic/company_info.py "Infosys"
+python 01-stock-market-analyzer/expert/ai_stock_report.py "Infosys" --dry-run
+```
+
+You should see Python 3.11+, a Git version, an Infosys stock block, and a printed AI
+prompt. Then, in Copilot Chat (Agent mode), ask it to *"create hello.py that prints
+Copilot works, then run it"*. If all five work, your laptop is ready. If not, check the
+guide for that step or ask your instructor **before** the day.
+
+---
+
 This folder is an index. Each setup task has its own short guide:
 
 - [`python-setup.md`](python-setup.md) — Python 3.11+ (and an optional virtual environment)

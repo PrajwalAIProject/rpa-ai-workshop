@@ -47,6 +47,13 @@ and [UiPath pricing](https://www.uipath.com/pricing).
    **Studio/StudioX** available in the left navigation.
 4. Turn on **MFA**: open your profile / account settings and enable
    **multi-factor authentication**.
+5. **Install UiPath Studio on your laptop** (Windows 10/11 only). In Automation Cloud,
+   find **Download Studio** (on the home page or under the Studio area of the left
+   navigation), run the installer, and when Studio opens, **sign in** with the same
+   Community account. Studio then connects to your Orchestrator tenant automatically.
+   Do this at home: the installer is large.
+   *(On macOS/Linux, use **Studio Web** in the browser instead, and tell your instructor
+   before the workshop.)*
 
 ---
 
@@ -56,6 +63,8 @@ and [UiPath pricing](https://www.uipath.com/pricing).
    Orchestrator tenant.
 2. **Studio**, **StudioX**, and **Orchestrator** are all visible in the portal.
 3. MFA is enabled on your account.
+4. **UiPath Studio** opens on your laptop and shows you signed in (top-right of Studio)
+   with your Community account.
 
 ---
 
