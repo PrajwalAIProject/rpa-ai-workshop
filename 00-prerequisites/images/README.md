@@ -22,3 +22,7 @@ key values, account numbers, and anything you wouldn't paste in chat.
 | `aws-plan-selection.png` | [`aws-free-tier.md`](../aws-free-tier.md) | The AWS plan-selection step with the **Free account plan** selected / highlighted. |
 | `aws-budgets-create.png` | [`aws-free-tier.md`](../aws-free-tier.md) | The AWS Budgets **"Create budget"** screen with the **Zero spend budget** template chosen. |
 | `kiro-download.png` | [`kiro-install.md`](../kiro-install.md) | The **kiro.dev** download / getting-started page showing the Windows installer download. |
+| `vscode-github-signin.png` | [`git-and-editor.md`](../git-and-editor.md) | The VS Code **Accounts** menu (bottom-left) showing the signed-in GitHub account. |
+| `vscode-copilot-agent.png` | [`git-and-editor.md`](../git-and-editor.md) | The **Copilot Chat** panel with the mode drop-down set to **Agent**. |
+| `gemini-api-key.png` | [`free-ai-api-key.md`](../free-ai-api-key.md) | The Google AI Studio **API keys** page with **Create API key**. Do **not** show a real key. |
+| `groq-api-key.png` | [`free-ai-api-key.md`](../free-ai-api-key.md) | The Groq console **API Keys** page with **Create API Key**. Do **not** show a real key. |

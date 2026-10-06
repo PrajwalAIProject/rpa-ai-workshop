@@ -1,7 +1,8 @@
-# API keys (Anthropic Claude)
+# API keys (Anthropic Claude) — Project 2 expert only
 
-The **expert** tiers of Project 1 and Project 2 ask Claude to write commentary and pick
-top stories. That needs an **Anthropic API key**.
+The **Project 2 expert** level asks Claude to pick the top news stories. That needs an
+**Anthropic API key**. (Project 1's expert level uses a **free Gemini or Groq key**
+instead; see [`free-ai-api-key.md`](free-ai-api-key.md).)
 
 ## What you'll set up
 
@@ -54,7 +55,7 @@ optional webhook (Project 1) and SMTP email (Project 2) settings.
 1. `.env` exists in the repo root and contains your `ANTHROPIC_API_KEY=` line.
 2. Running `git status` does **not** list `.env` as a change to commit — it is ignored
    by [`.gitignore`](../.gitignore).
-3. A Project 1 or 2 expert script runs without an "ANTHROPIC_API_KEY is not set" error.
+3. The Project 2 expert script runs without an "ANTHROPIC_API_KEY is not set" error.
 
 ---
 
@@ -64,8 +65,8 @@ optional webhook (Project 1) and SMTP email (Project 2) settings.
   exception only for `.env.example`).
 - Don't paste the key into chat, screenshots, or source files.
 - If a key leaks, **revoke it** in the Anthropic Console and create a new one.
-- For GitHub Actions (Project 1 expert), store the key as a **repository secret**, not
-  in the workflow file — see that project's expert README.
+- If you ever run a script from GitHub Actions, store the key as a **repository
+  secret**, never in the workflow file.
 
 ---
 

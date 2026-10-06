@@ -1,7 +1,8 @@
 # Python setup
 
-Every project in this workshop runs on Python. Set this up once; all three projects
-share the same virtual environment and dependency list.
+Every project in this workshop runs on Python. **Step 1 (install Python) is the only
+must-have for Project 1.** GitHub Copilot installs the packages each script needs; steps 3–4
+(virtual environment, install everything up front) are optional but recommended.
 
 ## What you'll set up
 
@@ -106,26 +107,23 @@ That installs everything used across all three projects.
 
 | Package | Used by | One-line purpose |
 | ------- | ------- | ---------------- |
-| `yfinance` | Project 1 | Downloads stock price data. |
-| `pandas` | Project 1 | Holds and crunches the data in tables (moving averages). |
-| `matplotlib` | Project 1 | Draws the price/MA charts and saves them as PNGs. |
-| `feedparser` | Project 2 | Reads RSS news feeds. |
-| `anthropic` | Projects 1 & 2 (expert) | Official client for the Claude API. |
+| `yfinance` | Project 1 (all levels) | Finds a company's stock symbol and downloads its prices (installs `pandas` too). |
+| `requests` | Project 1 (advanced) | Downloads the web page to scrape. |
+| `beautifulsoup4` | Project 1 (advanced) | Reads values out of the page's HTML (imported as `bs4`). |
+| `openai` | Project 1 (expert) | Talks to the free AI API (Gemini or Groq, both OpenAI-compatible). |
 | `python-dotenv` | Projects 1 & 2 (expert) | Loads secrets from your local `.env` file. |
-| `requests` | Project 1 (expert) | Makes HTTP calls (e.g. posting commentary to a webhook). |
+| `feedparser` | Project 2 | Reads RSS news feeds. |
+| `anthropic` | Project 2 (expert) | Official client for the Claude API. |
 
 ---
 
 ## Verify
 
-1. Virtual environment active (prompt shows `(.venv)`).
-2. `python --version` (or `py --version`) prints 3.11+.
-3. `pip list` shows `yfinance`, `pandas`, `matplotlib`, `feedparser`, `anthropic`,
-   `python-dotenv`, and `requests`.
-4. Quick smoke test (should print nothing and exit cleanly):
+1. `python --version` (or `py --version`) prints 3.11+.
+2. If you installed everything up front, this smoke test prints `all imports OK`:
 
    ```bash
-   python -c "import yfinance, pandas, matplotlib, feedparser, anthropic, dotenv, requests; print('all imports OK')"
+   python -c "import yfinance, requests, bs4, openai, dotenv, feedparser, anthropic; print('all imports OK')"
    ```
 
 ---
@@ -143,6 +141,10 @@ That installs everything used across all three projects.
   for the proxy settings and set `HTTP_PROXY` / `HTTPS_PROXY`. As a last resort for a
   trusted mirror only, your instructor may give you a `--trusted-host` flag. Also run
   `python -m pip install --upgrade pip` first — an old pip causes many install failures.
+- **`SSL: CERTIFICATE_VERIFY_FAILED` when a script downloads data** — The network
+  inspects HTTPS (common on office and some college networks). Use a phone hotspot, or
+  `pip install truststore` and add `import truststore; truststore.inject_into_ssl()` as
+  the first line of the script so Python trusts the Windows certificate store.
 - **A package fails to build / "Microsoft Visual C++ required"** — Upgrade pip
   (`python -m pip install --upgrade pip`) and retry; the pinned versions ship prebuilt
   wheels, so a fresh pip usually avoids any compiler step.

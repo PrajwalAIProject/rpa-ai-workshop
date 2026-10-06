@@ -21,7 +21,10 @@ dist/
 *.sqlite3
 
 # ---- Generated output ----
-# Matplotlib PNGs are generated at runtime; keep committed samples by exception.
+# Project 1 writes these at runtime (trend data, AI reports).
+*_trend.json
+*_report.md
+# PNGs are generated at runtime; keep committed samples by exception.
 *.png
 !**/sample_output.png
 !00-prerequisites/images/*.png

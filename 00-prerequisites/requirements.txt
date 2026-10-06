@@ -1,13 +1,16 @@
-# Union of all Python dependencies across the three projects.
-# Install into a virtual environment:
+# All Python packages used across the projects (optional: in Project 1, GitHub Copilot
+# installs what each script needs). To install everything up front, in a virtual environment:
 #     python -m venv .venv
-#     # activate it (see 00-prerequisites/README.md), then:
-#     pip install -r requirements.txt
+#     # activate it (see 00-prerequisites/python-setup.md), then:
+#     pip install -r 00-prerequisites/requirements.txt
 
-yfinance==0.2.52
-pandas==2.2.3
-matplotlib==3.9.2
+# ---- Project 1: stock market analyzer ----
+yfinance>=1.0            # company search + prices (pulls in pandas)
+requests>=2.32           # advanced: download the page to scrape
+beautifulsoup4>=4.12     # advanced: parse the HTML
+openai>=1.40             # expert: free Gemini / Groq API (OpenAI-compatible)
+python-dotenv>=1.0       # expert: read the key from .env
+
+# ---- Project 2: morning news digest ----
 feedparser==6.0.11
 anthropic==0.39.0
-python-dotenv==1.0.1
-requests==2.32.3

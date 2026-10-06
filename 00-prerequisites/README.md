@@ -1,112 +1,94 @@
 # 00 — Prerequisites
 
-Set this up **before** the 5-hour workshop. Everything else in the repo assumes it is
-done. Doing it live eats into lab time, so arrive with the checklist below ticked.
+Set this up **before** the workshop. Doing it live eats into lab time, so arrive with
+the checklist below ticked.
 
-This folder is an index. Each major setup task has its own focused guide — follow the
-ones your tier needs:
+This folder is an index. Each setup task has its own short guide:
 
-- [`python-setup.md`](python-setup.md) — Python 3.11+, virtual environment, dependencies
-- [`git-and-editor.md`](git-and-editor.md) — Git and a code editor (VS Code / Kiro)
-- [`uipath-cloud.md`](uipath-cloud.md) — UiPath Automation Cloud (Community) for Project 3
-- [`kiro-install.md`](kiro-install.md) — Install Kiro (expert tier; no AWS account needed)
-- [`aws-free-tier.md`](aws-free-tier.md) — AWS account + cost safety (only if hosting the
-  expert watcher on AWS)
-- [`api-keys.md`](api-keys.md) — Anthropic API key for the expert AI tiers
+- [`python-setup.md`](python-setup.md) — Python 3.11+ (and an optional virtual environment)
+- [`git-and-editor.md`](git-and-editor.md) — **GitHub account, VS Code, Git and GitHub Copilot** (the AI that writes the Project 1 code with you)
+- [`free-ai-api-key.md`](free-ai-api-key.md) — a **free** Gemini (or Groq) API key for the Project 1 expert AI report, with no card needed
+- [`uipath-cloud.md`](uipath-cloud.md) — UiPath Automation Cloud (Community), Project 3
+- [`api-keys.md`](api-keys.md) — Anthropic API key, Project 2 expert
+- [`kiro-install.md`](kiro-install.md) and [`aws-free-tier.md`](aws-free-tier.md) — Project 3 expert only (optional)
 
-> **Heads-up:** AWS and Kiro change their terms, pricing, and screens often. Every fact
-> below was accurate at the time of writing, but **confirm current details on the
-> official pages linked in each guide before the session.** Content was rephrased for
-> compliance with licensing restrictions.
+> **Heads-up:** GitHub, Google and Groq change their plans and screens often. Every
+> fact below was checked in October 2026; **confirm current details on the official
+> pages linked in each guide before the session.**
 
 ---
 
-## What to install — decision tree
+## Project 1 in one picture
 
-_Everyone sets up the first four tools; only the Project 3 expert tier adds AWS, Kiro,
-and an Anthropic key._
+_Project 1 (stock market analyzer) needs Python, VS Code and a GitHub account with
+Copilot. The expert level adds one free AI API key._
 
 ```mermaid
 flowchart TD
-    A[Start setup] --> B[Install Python 3.11+ and dependencies]
-    B --> C[Install Git and a code editor]
-    C --> D[Create a UiPath Cloud account]
-    D --> E{Doing the Project 3 expert agentic tier?}
-    E -->|No - all other projects/tiers| F[Done - you have the basics]
-    E -->|Yes - expert only| H[Install Kiro and sign in - no AWS account needed]
-    H --> I[Add an Anthropic API key to .env]
-    I --> K{Hosting the watcher on AWS?}
-    K -->|No - run it locally| J[Done - expert setup complete]
-    K -->|Yes - optional| G[Create an AWS account on the Free plan]
-    G --> J
+    A[Install Python 3.11+] --> B[GitHub account + VS Code + Git]
+    B --> C[Sign in to GitHub in VS Code, turn on Copilot - Agent mode]
+    C --> D[Basic: company name to stock info]
+    D --> E[Advanced: full trend with web scraping]
+    E --> F{Doing the expert level?}
+    F -->|No| G[Done]
+    F -->|Yes| H[Get a free Gemini API key - no card]
+    H --> I[Expert: AI-written stock report]
 ```
-
-> **Note:** the expert AI steps in Projects 1 and 2 also need the **Anthropic API key**,
-> but not AWS or Kiro. **Kiro itself does not require an AWS account** — you sign in with
-> GitHub, Google, AWS Builder ID, or AWS IAM Identity Center. You only need AWS if you
-> choose to **host the watcher on AWS**. Use the tool matrix below to confirm exactly
-> what your tier needs.
 
 ---
 
-## What you need before the session — checklist
+## Checklist
 
-Tick each item once it's actually done. The first group is for **everyone**; the rest
-depends on how far you take each project.
+**Everyone:**
 
-**Everyone (all projects, basic tier):**
+- [ ] **Python 3.11 or newer** installed and on your PATH: `python --version` works.
+      See [`python-setup.md`](python-setup.md).
+- [ ] A **GitHub account**. Students: also apply for **GitHub Education** (Copilot
+      Student). It can take 1–3 days. See [`git-and-editor.md`](git-and-editor.md).
+- [ ] **VS Code** and **Git** installed, VS Code **signed in to GitHub**, and
+      **Copilot Chat** working in **Agent** mode (the `hello.py` test in
+      [`git-and-editor.md`](git-and-editor.md) passes).
+- [ ] An empty project folder, e.g. `C:\stock-project`, opened in VS Code.
 
-- [ ] Python **3.11 or newer** installed and on your PATH — see [`python-setup.md`](python-setup.md)
-- [ ] A **virtual environment** created and dependencies installed from
-      [`requirements.txt`](requirements.txt) — see [`python-setup.md`](python-setup.md)
-- [ ] **Git** installed and configured — see [`git-and-editor.md`](git-and-editor.md)
-- [ ] A **code editor** (VS Code recommended) — see [`git-and-editor.md`](git-and-editor.md)
+**Project 1 expert (AI report):**
 
-**Project 3 (basic / advanced tiers):**
+- [ ] A free **Gemini API key** (or Groq) in a `.env` file in your project folder. See
+      [`free-ai-api-key.md`](free-ai-api-key.md).
 
-- [ ] A free **UiPath Automation Cloud (Community)** account with MFA on —
-      see [`uipath-cloud.md`](uipath-cloud.md)
+**Project 2 expert:** an Anthropic API key, see [`api-keys.md`](api-keys.md).
 
-**Expert tiers (Project 1 & 2 AI steps, Project 3 agentic layer):**
-
-- [ ] An **Anthropic API key** in a local `.env` file — see [`api-keys.md`](api-keys.md)
-- [ ] **Kiro** installed and signed in (GitHub / Google / AWS Builder ID — **no AWS
-      account required**) — see [`kiro-install.md`](kiro-install.md) *(Project 3 expert)*
-- [ ] *(Only if you host the watcher on AWS)* An **AWS account** on the **Free account
-      plan**, with MFA + a budget alert — see [`aws-free-tier.md`](aws-free-tier.md)
-      *(Project 3 expert, optional)*
+**Project 3:** a free **UiPath Automation Cloud (Community)** account, see
+[`uipath-cloud.md`](uipath-cloud.md).
 
 ---
 
 ## Which tool does each project need?
 
-| Project / tier | Python + deps | Git + editor | UiPath Cloud | Anthropic key | AWS | Kiro |
-| -------------- | :-----------: | :----------: | :----------: | :-----------: | :-: | :--: |
-| **1** Stock — basic / advanced | ✅ | ✅ | — | — | — | — |
-| **1** Stock — expert (AI + Actions) | ✅ | ✅ | — | ✅ | — | — |
-| **2** News — basic / advanced | ✅ | ✅ | — | — | — | — |
-| **2** News — expert (AI + email) | ✅ | ✅ | — | ✅ | — | — |
-| **3** RPA — basic / advanced | ✅ | ✅ | ✅ | — | — | — |
-| **3** RPA — expert (agentic) | ✅ | ✅ | ✅ | — | ⚠️ | ✅ |
+| Project / level | Python | VS Code + GitHub Copilot | Free AI key (Gemini/Groq) | UiPath Cloud | Anthropic key |
+| --------------- | :----: | :----------------------: | :-----------------------: | :----------: | :-----------: |
+| **1** Stock — basic | ✅ | ✅ | — | — | — |
+| **1** Stock — advanced (web scraping) | ✅ | ✅ | — | — | — |
+| **1** Stock — expert (AI report) | ✅ | ✅ | ✅ | — | — |
+| **2** News — basic / advanced | ✅ | ✅ | — | — | — |
+| **2** News — expert | ✅ | ✅ | — | — | ✅ |
+| **3** RPA — basic / advanced | ✅ | — | — | ✅ | — |
+| **3** RPA — expert (agentic) | ✅ | — | — | ✅ | — |
 
-⚠️ **AWS is conditional, not mandatory.** Project 3 expert needs **Kiro** to author the
-watcher-agent spec, and **Kiro does not require an AWS account** (sign in with GitHub,
-Google, AWS Builder ID, or AWS IAM Identity Center). You only need an **AWS account** if
-you choose to **host the watcher on AWS** — otherwise you can skip the AWS setup
-entirely. The expert watcher itself needs no network and no API key: the Kiro
-requirement is for authoring the agent spec, not for running the sample.
+**No AWS account and no credit card are needed for Project 1.**
+
+**Python packages:** in Project 1, Copilot installs what each script needs (it runs
+`pip install ...` and asks you first). To install everything up front instead, run
+`pip install -r 00-prerequisites/requirements.txt`; see [`python-setup.md`](python-setup.md).
 
 ---
 
 ## Order to do it in
 
-1. [Python](python-setup.md) → [Git + editor](git-and-editor.md) — needed by every project.
-2. [UiPath Automation Cloud](uipath-cloud.md) — if you're doing Project 3.
-3. [Anthropic API key](api-keys.md) — if you're doing any expert AI tier.
-4. [Kiro](kiro-install.md) — only for Project 3 expert (no AWS account needed to sign in).
-5. [AWS Free Tier](aws-free-tier.md) — **only if** you host the Project 3 expert watcher
-   on AWS; otherwise skip it.
+1. [Python](python-setup.md)
+2. [GitHub account → VS Code → Git → Copilot](git-and-editor.md) (apply for GitHub Education early)
+3. [Free AI API key](free-ai-api-key.md), for the Project 1 expert level
+4. [UiPath Cloud](uipath-cloud.md) (Project 3), [Anthropic key](api-keys.md) (Project 2 expert)
 
-Secrets (the Anthropic key, SMTP passwords, webhooks) go **only** in a local `.env`
-file, which is git-ignored. Copy [`.env.example`](../.env.example) to `.env` and fill in
-your own values. **Never commit real keys.**
+Secrets (the Gemini/Groq key, the Anthropic key, SMTP passwords) go **only** in a local
+`.env` file, which is git-ignored. Copy [`.env.example`](../.env.example) to `.env` and
+fill in your own values. **Never commit real keys and never paste them into Copilot Chat.**

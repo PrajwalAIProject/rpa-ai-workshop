@@ -36,20 +36,22 @@ that sit alongside that ladder.
 
 1. Set up your tools once, before the session — see
    [`00-prerequisites/README.md`](00-prerequisites/README.md). It walks you through
-   Python 3.11+, a UiPath Automation Cloud (Community) account, an Anthropic API key,
-   Kiro, and (only if you host the Project 3 expert watcher on AWS) an AWS account.
+   Python 3.11+, a GitHub account with VS Code, Git and GitHub Copilot, a free Gemini
+   API key (Project 1 expert), a UiPath Automation Cloud (Community) account (Project 3)
+   and an Anthropic API key (Project 2 expert).
 2. Pick a project below and open its `basic/` README. Work up through the tiers.
-3. All Python tiers share one dependency list:
-   [`00-prerequisites/requirements.txt`](00-prerequisites/requirements.txt).
+3. All Python packages are listed in
+   [`00-prerequisites/requirements.txt`](00-prerequisites/requirements.txt) (in Project 1,
+   GitHub Copilot installs them for you as it goes).
 
-> **Heads-up:** AWS, Kiro, and UiPath change their terms, pricing, and screens often —
+> **Heads-up:** GitHub, Google, UiPath and other services change their terms, pricing and screens often —
 > confirm current details on the official pages before the session.
 
 ## The three projects
 
 | # | Project | Overview | What it teaches |
 | - | ------- | -------- | --------------- |
-| 1 | Stock Market Analyzer | [`01-stock-market-analyzer/README.md`](01-stock-market-analyzer/README.md) | Python, external APIs, pandas/matplotlib, SQLite, an LLM commentary step, GitHub Actions scheduling |
+| 1 | Stock Market Analyzer | [`01-stock-market-analyzer/README.md`](01-stock-market-analyzer/README.md) | Building with GitHub Copilot (agent-mode prompts in VS Code), company-name → stock lookup, web scraping (requests + BeautifulSoup), an AI-written report from a free AI API (Gemini / Groq) |
 | 2 | Morning News Digest | [`02-morning-news-digest/README.md`](02-morning-news-digest/README.md) | RSS parsing, categorization, markdown/HTML rendering, an LLM "what matters" step, email delivery |
 | 3 | StudioX to Agentic RPA | [`03-studiox-to-agentic-rpa/README.md`](03-studiox-to-agentic-rpa/README.md) | Professional Studio, Orchestrator, queues and retry/escalate, Kiro specs, a runnable watcher agent |
 
@@ -59,13 +61,15 @@ build → Prerequisites → Step-by-step setup → Common errors and fixes.**
 
 ## Prerequisites in brief
 
-Everyone needs Python and Git plus an editor. UiPath Automation Cloud (Community) is for
-Project 3. The expert AI steps in Projects 1 and 2 need an Anthropic API key. Project 3
-expert needs **Kiro** — and **Kiro does not require an AWS account** (sign in with
-GitHub, Google, an AWS Builder ID, or AWS IAM Identity Center). You only need an **AWS
-account** if you choose to host the Project 3 expert watcher on AWS, and in that case a
-**card-free path** (AWS Student Rewards or AWS Educate) is the recommended option for a
-classroom — see [`00-prerequisites/aws-free-tier.md`](00-prerequisites/aws-free-tier.md).
+Everyone needs **Python 3.11+**, a **GitHub account**, and **VS Code + Git** signed in
+to GitHub with **GitHub Copilot** (Copilot Free works; verified students can get Copilot
+Student through GitHub Education). In Project 1 you build every script by giving
+Copilot a prompt in Agent mode — see
+[`00-prerequisites/git-and-editor.md`](00-prerequisites/git-and-editor.md). The
+**Project 1 expert** level calls a **free AI API** (Google Gemini, or Groq) — no credit
+card, no AWS — see [`00-prerequisites/free-ai-api-key.md`](00-prerequisites/free-ai-api-key.md).
+UiPath Automation Cloud (Community) is for Project 3; the Project 2 expert level needs an
+Anthropic API key; Project 3 expert optionally uses Kiro and AWS.
 
 The full checklist, decision tree, and per-tool matrix live in
 [`00-prerequisites/README.md`](00-prerequisites/README.md).

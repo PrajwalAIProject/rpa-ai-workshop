@@ -27,8 +27,17 @@ See the full guide: [`00-prerequisites/python-setup.md`](00-prerequisites/python
 
 ## API keys
 
-See the full guide: [`00-prerequisites/api-keys.md`](00-prerequisites/api-keys.md). Used
-by Project 1 and Project 2 expert tiers.
+**Project 1 expert (free Gemini / Groq key):** see
+[`00-prerequisites/free-ai-api-key.md`](00-prerequisites/free-ai-api-key.md) and the error
+table in [Project 1 expert](01-stock-market-analyzer/expert/README.md). The usual fixes:
+the `.env` must sit next to the script (not `.env.txt`), the key must be pasted without
+quotes, and on a `429` (free limit) wait a minute or switch `LLM_PROVIDER`.
+
+**GitHub Copilot (Project 1):** sign-in, Agent mode and monthly-limit fixes are in
+[`00-prerequisites/git-and-editor.md`](00-prerequisites/git-and-editor.md).
+
+**Project 2 expert (Anthropic):** see the full guide:
+[`00-prerequisites/api-keys.md`](00-prerequisites/api-keys.md).
 
 - **"ANTHROPIC_API_KEY is not set"** — The key is missing from `.env`, or `.env` isn't at
   the repo root. Add the `ANTHROPIC_API_KEY=` line to the root `.env` and re-run.
@@ -36,9 +45,7 @@ by Project 1 and Project 2 expert tiers.
   Generate a fresh key in the [Anthropic Console](https://console.anthropic.com/) and
   paste the whole value.
 - **Rate limit / overloaded errors** — You've hit the free tier's limits. Wait a short
-  while and retry; see the tier READMEs
-  ([Project 1 expert](01-stock-market-analyzer/expert/README.md),
-  [Project 2 expert](02-morning-news-digest/expert/README.md)).
+  while and retry; see the [Project 2 expert](02-morning-news-digest/expert/README.md) README.
 
 ## Network
 
@@ -49,8 +56,11 @@ by Project 1 and Project 2 expert tiers.
   [Project 2 basic](02-morning-news-digest/basic/README.md).
 - **One RSS feed is empty but others work** — Normal; a single feed may be down. The
   script skips it and uses the rest.
-- **"Could not fetch a quote: No price data returned"** — The ticker symbol is wrong or
-  delisted. Check the symbol (e.g. `AAPL`, not `APPLE`).
+- **"No listed company found for ..."** (Project 1) — The company name didn't match a
+  listed stock. Type the full name ("Tata Consultancy Services") and check the spelling.
+- **Scraped sections come back empty** (Project 1 advanced) — screener.in changed its
+  page layout, or returned a block page. See the
+  [Project 1 advanced](01-stock-market-analyzer/advanced/README.md) README.
 
 ## AWS
 

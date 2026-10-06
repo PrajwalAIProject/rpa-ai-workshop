@@ -1,45 +1,76 @@
-# Project 1 — Stock Market Analyzer
+# Project 1 — Stock Market Analyzer (built with GitHub Copilot)
 
-Pull stock data, compute something useful from it, and eventually explain the result in
-plain English. This project is deliberately outside the UiPath toolkit — it's where you
-pick up **Python, external APIs, and cloud scheduling** that BCG701 doesn't cover.
+You don't write this code by hand. In VS Code you give **GitHub Copilot** (an AI coding
+assistant) a clear prompt. Copilot writes the Python script, runs it in the terminal,
+and fixes its own errors. Your job is the part companies care about now: **give clear
+instructions, then check that the result is right.**
 
-Work up through the tiers. You don't have to reach expert — each tier is a complete,
-runnable deliverable on its own.
+Each level adds one new idea on top of the last one:
 
-## The three tiers
+| Level | You type | The script does | New idea |
+| ----- | -------- | --------------- | -------- |
+| [**Basic**](basic/README.md) | `Infosys` | Finds the company's stock and prints its price, day change, 52-week range, market cap | Talking to a data source (yfinance) |
+| [**Advanced**](advanced/README.md) | `Infosys` | Prints the **full trend**: 1 week → 1 year price change, 50/200-day averages, plus fundamentals **web-scraped** from screener.in (growth, ratios, quarterly results, pros/cons) | Web scraping (requests + BeautifulSoup) |
+| [**Expert**](expert/README.md) | `Infosys` | Sends all that data to a **free AI model** (Google Gemini, or Groq), which writes a plain-English report | Using AI from your own code |
 
-### Basic — [`basic/README.md`](basic/README.md)
+```mermaid
+flowchart LR
+    A[Company name] --> B[Basic: find the stock and its price]
+    B --> C[Advanced: price trend + scraped fundamentals]
+    C --> D[Expert: free AI model writes the report]
+```
 
-A one-file script that fetches a single stock's current price and day change with
-`yfinance` and prints the ticker, last price, percent change, and a timestamp. No API
-key needed. **Done** when the script prints a clean quote for any ticker you pass it.
+## What you need
 
-### Advanced — [`advanced/README.md`](advanced/README.md)
+| Level | Python 3.11+ | VS Code + GitHub Copilot | Free AI API key |
+| ----- | :----------: | :----------------------: | :-------------: |
+| Basic | ✅ | ✅ | — |
+| Advanced | ✅ | ✅ | — |
+| Expert | ✅ | ✅ | ✅ (Gemini or Groq, no card) |
 
-Track five tickers, persist their history to a local **SQLite** database, compute 20-day
-and 50-day moving averages with **pandas**, flag a golden/death cross, and save a
-price-plus-averages **matplotlib** chart per ticker. No API key needed. **Done** when you
-have a database of prices, a per-ticker chart, and a terminal summary with any cross
-signal.
+Setup guides: [Python](../00-prerequisites/python-setup.md) ·
+[GitHub, VS Code, Git and Copilot](../00-prerequisites/git-and-editor.md) ·
+[Free AI API key](../00-prerequisites/free-ai-api-key.md).
+**No AWS account and no credit card needed.**
 
-### Expert — [`expert/README.md`](expert/README.md)
+## How every level works
 
-Feed the computed indicators to **Anthropic Claude** for a 2-3 sentence plain-English
-commentary (prompted to flag low confidence instead of always sounding certain), then
-schedule it with a **GitHub Actions** cron job. **Done** when the script prints Claude's
-commentary locally and the scheduled Action runs it on its own.
+1. **One folder for the whole project.** Create a folder such as `C:\stock-project`,
+   then in VS Code choose **File → Open Folder** and open it. All three scripts live
+   there, because each level reuses the one before it.
+2. **Open Copilot Chat in Agent mode.** Open the Chat panel (Copilot icon in the title
+   bar, or **View → Chat**) and set the mode drop-down to **Agent**.
+3. **Copy the prompt** from the level's README into the chat and press Enter.
+4. **Let Copilot work.** It writes the file, then asks to run commands such as
+   `pip install yfinance` and `python company_info.py "Infosys"`. Read each command,
+   then click **Continue/Allow**.
+5. **Check the output yourself.** Each README shows what correct output looks like. If
+   something is wrong, tell Copilot exactly what you see ("the market cap is missing",
+   "it picked the US listing, I want NSE") and let it fix the code.
+6. **Stuck?** Each level has a working **reference solution** in this folder
+   (`basic/company_info.py`, `advanced/stock_trend.py`, `expert/ai_stock_report.py`).
+   Compare it with Copilot's code, or run it directly.
 
-## Prerequisites
+> **Copilot limits:** Copilot Free gives 50 chat requests a month. These three prompts
+> plus a few follow-ups use well under that, so don't spend requests on small talk.
+> Verified students get more through the Copilot Student plan (GitHub Education).
 
-- Python 3.11+ and the shared dependencies — see
-  [`00-prerequisites/python-setup.md`](../00-prerequisites/python-setup.md) and
-  [`00-prerequisites/requirements.txt`](../00-prerequisites/requirements.txt).
-- Git and a code editor — see
-  [`00-prerequisites/git-and-editor.md`](../00-prerequisites/git-and-editor.md) (the
-  expert tier pushes to GitHub for scheduling).
-- **Expert tier only:** an Anthropic API key in a local `.env` — see
-  [`00-prerequisites/api-keys.md`](../00-prerequisites/api-keys.md).
+## Done when
 
-New to any term here? Check the [`GLOSSARY.md`](../GLOSSARY.md). Stuck on setup or a run?
-See [`TROUBLESHOOTING.md`](../TROUBLESHOOTING.md).
+- **Basic:** `python company_info.py "Infosys"` prints a clean block of stock details.
+- **Advanced:** `python stock_trend.py "Infosys"` prints the price trend and the scraped
+  fundamentals, and saves `INFY_NS_trend.json`.
+- **Expert:** `python ai_stock_report.py "Infosys"` prints an AI-written report and
+  saves `INFY_NS_report.md`.
+
+**Bonus: put it on GitHub.** First ask Copilot: *"Create a .gitignore that ignores .env,
+\*_trend.json, \*_report.md and \_\_pycache\_\_, and a short README.md explaining how to run
+the three scripts."* Then use VS Code's **Source Control** panel → **Publish to GitHub**.
+Before you confirm, check that `.env` is **not** in the list of files: it holds your key.
+A public repo with a clear README is the "clean GitHub" item employers look for.
+
+New to a term? See the [`GLOSSARY.md`](../GLOSSARY.md). Something broken? See
+[`TROUBLESHOOTING.md`](../TROUBLESHOOTING.md) and the error table in each level.
+
+> This project is a coding exercise with live market data. Nothing it prints is
+> investment advice.
