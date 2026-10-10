@@ -1,47 +1,57 @@
-# Spec: Orchestrator Watcher Agent
+# Spec: PhoneDeals watcher agent
 
-> This is an example **Kiro spec** — a natural-language description of what the agent
-> should do. In Kiro you write the behavior in plain English like this, and the
-> spec-driven workflow helps generate and refine the implementation
-> (`watcher_agent.py` in this folder is the result for the sample-log case).
+> An example **Kiro spec**: a plain-English description of what the agent must do. In
+> Kiro you start a spec from text like this (Prompt E1), and Kiro turns it into
+> requirements, a design and tasks, then writes the code. `watcher_agent.py` in this
+> folder is the reference result.
 
 ## Intent
 
-Replace the human who watches the UiPath Orchestrator dashboard. The agent reads the
-job log and decides, for each job, whether to **retry**, **escalate** to a person, or
-**stop** (nothing to do).
+Replace the person who checks the PhoneDeals bot's jobs in UiPath Orchestrator every
+morning. The agent reads the job log and decides, for each job, whether to **retry**,
+**escalate** to a person, or **stop** (nothing to do), and explains every decision.
 
 ## Inputs
 
-- An Orchestrator job log. During the workshop this is a local JSON file
-  (`sample_orchestrator_log.json`); in production it is the Orchestrator **Jobs API**
-  response. Each job carries: `job_id`, `process`, `state`, `attempt`, `max_retries`,
-  `exception_type`, `error_message`.
+- A job log in JSON. During the workshop: `sample_orchestrator_log.json`, or your own
+  jobs from `uip or jobs list --folder-path Shared --process-name PhoneDeals --all-fields`
+  converted to the same format. Each job has: `job_id`, `process`, `state`, `attempt`,
+  `max_retries`, `exception_type`, `error_message`, and optionally `output`.
 
-## Decision rules
+## Decision rules (in this order)
 
-1. If the job **succeeded**, do nothing → **STOP**.
-2. If it failed with a **BusinessException** (bad/missing data), a human must fix the
-   data; retrying never helps → **ESCALATE**.
-3. If it failed with an **ApplicationException** (likely transient: timeout, locked
-   file) and **attempts remain**, → **RETRY**.
-4. If an **ApplicationException** has **exhausted its retries**, give up automatically
-   and alert a human → **ESCALATE**.
-5. For any **unrecognized** state, fail safe → **ESCALATE**.
+1. The job **succeeded** → **STOP**.
+2. The error mentions a **robot check** or **CAPTCHA** → **ESCALATE**. Never retry it and
+   never try to get around it.
+3. **BusinessException** (no phones found, bad input) → **ESCALATE**; retrying never helps.
+4. **ApplicationException** with **attempts left** (`attempt < max_retries`) → **RETRY**.
+5. **ApplicationException** with **no attempts left** → **ESCALATE**.
+6. Anything **unrecognized** → **ESCALATE** (fail safe toward a person).
 
-## Output
+## Actions
 
-- A per-job decision (action + human-readable reason) and a summary count of
-  RETRY / ESCALATE / STOP.
+- `--act`: for each RETRY job, ask the person "rerun? [y/N]" and only on **y** run
+  `uip or jobs start <process key> --wait-for-completion`. The process key comes from
+  `UIPATH_PROCESS_KEY` in `.env`. Without the CLI or the key, print the command instead.
+  ESCALATE and STOP jobs are never rerun.
+- `--report`: send the decisions to a free AI model (Gemini by default, Groq as backup,
+  key in `.env`) and save a short morning report as `morning_report.md`.
+  `--report --dry-run` prints the prompt without calling the AI.
 
 ## Constraints
 
-- Must run standalone against the committed sample log with **no network** and **no
-  credentials**.
-- Decisions must be **auditable**: every action comes with a plain-English reason.
+- The decisions come from the rules above, never from the AI. The AI only writes the report.
+- Every decision has a plain-English reason (auditable).
+- The core runs with no network and no credentials on the sample log.
+- No passwords, keys or secrets in code or in chat.
+
+## Tests
+
+- One assert per rule, including the CAPTCHA rule, and one test that the sample log gives
+  RETRY, ESCALATE, ESCALATE, STOP, RETRY.
 
 ## Stretch ideas
 
-- Swap the file read for a live Orchestrator Jobs API call.
-- Trigger an actual retry via the API, and send escalations to email/Slack.
-- Let an LLM summarize the batch of decisions into one morning status line.
+- A daily limit on automatic reruns (for example, 3 a day).
+- Send ESCALATE jobs to email or Teams instead of printing them.
+- Run the watcher every morning at 09:30, after the 09:00 bot run.

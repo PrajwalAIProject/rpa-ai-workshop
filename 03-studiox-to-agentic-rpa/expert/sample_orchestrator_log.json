@@ -1,51 +1,53 @@
 {
   "tenant": "workshop-community",
-  "generated_at": "2025-01-15T07:05:00Z",
+  "folder": "Shared",
+  "generated_at": "2026-10-12T07:05:00Z",
   "jobs": [
     {
-      "job_id": "J-1001",
-      "process": "InvoiceExtraction",
+      "job_id": "J-2001",
+      "process": "PhoneDeals",
       "state": "Faulted",
       "attempt": 1,
       "max_retries": 3,
       "exception_type": "ApplicationException",
-      "error_message": "Timeout connecting to the invoice portal (transient network error)."
+      "error_message": "Timeout: the amazon.in search page did not load in 30 seconds."
     },
     {
-      "job_id": "J-1002",
-      "process": "InvoiceExtraction",
+      "job_id": "J-2002",
+      "process": "PhoneDeals",
       "state": "Faulted",
       "attempt": 3,
       "max_retries": 3,
       "exception_type": "ApplicationException",
-      "error_message": "Portal still unreachable after multiple attempts."
+      "error_message": "Selector not found: the product list layout looks different (tried 3 times)."
     },
     {
-      "job_id": "J-1003",
-      "process": "InvoiceExtraction",
+      "job_id": "J-2003",
+      "process": "PhoneDeals",
       "state": "Faulted",
       "attempt": 1,
       "max_retries": 3,
       "exception_type": "BusinessException",
-      "error_message": "Required field 'InvoiceNumber' is missing from the input item."
+      "error_message": "Amazon showed a robot check (CAPTCHA) page instead of results."
     },
     {
-      "job_id": "J-1004",
-      "process": "InvoiceExtraction",
+      "job_id": "J-2004",
+      "process": "PhoneDeals",
       "state": "Successful",
       "attempt": 1,
       "max_retries": 3,
       "exception_type": null,
-      "error_message": null
+      "error_message": null,
+      "output": {"phones_found": 14, "cheapest": "₹9,499", "excel": "PhonesUnder20K.xlsx"}
     },
     {
-      "job_id": "J-1005",
-      "process": "InvoiceExtraction",
+      "job_id": "J-2005",
+      "process": "PhoneDeals",
       "state": "Faulted",
       "attempt": 2,
       "max_retries": 3,
       "exception_type": "ApplicationException",
-      "error_message": "File locked by another user; will likely clear shortly."
+      "error_message": "PhonesUnder20K.xlsx is open in Excel (file locked); will likely clear shortly."
     }
   ]
 }

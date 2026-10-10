@@ -28,6 +28,10 @@ dist/
 digest.html
 digest.json
 briefing.md
+# Project 3 writes these at runtime.
+PhonesUnder20K*.xlsx
+morning_report.md
+my_jobs.json
 # PNGs are generated at runtime; keep committed samples by exception.
 *.png
 !**/sample_output.png

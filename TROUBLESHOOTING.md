@@ -74,7 +74,7 @@ the full guide: [`00-prerequisites/aws-free-tier.md`](00-prerequisites/aws-free-
 
 ## Kiro
 
-Used in Project 3 expert. See the full guide:
+Used at every level of Project 3. See the full guide:
 [`00-prerequisites/kiro-install.md`](00-prerequisites/kiro-install.md).
 
 - **Not sure whether you need an AWS account** — You do **not** need an AWS account to use
@@ -89,7 +89,7 @@ Used in Project 3 expert. See the full guide:
 
 ## UiPath
 
-Used in Project 3 basic and advanced. See the full guide:
+Used at every level of Project 3. See the full guide:
 [`00-prerequisites/uipath-cloud.md`](00-prerequisites/uipath-cloud.md).
 
 - **Only StudioX opens, not Studio** — Studio and StudioX are separate profiles in the
@@ -98,6 +98,26 @@ Used in Project 3 basic and advanced. See the full guide:
 - **Orchestrator "robot unavailable" / machine limit** — The Community plan limits
   Orchestrator to **1 machine per user**. Make sure your robot is connected and you're not
   trying to register a second machine. See
-  [Project 3 advanced](03-studiox-to-agentic-rpa/advanced/orchestrator_setup_guide.md).
-- **Queue items retry forever** — Your retry rule has no escalate/stop path. Add a
-  retry-or-escalate rule so exhausted items escalate instead of looping.
+  [Project 3 advanced](03-studiox-to-agentic-rpa/advanced/README.md).
+- **Everything retries forever** — You retried a business exception. A robot check or
+  "no phones found" must be a BusinessRuleException outside the Retry Scope.
+- **The bot can't attach to the browser** — Install and enable the UiPath browser
+  extension (Studio → Home → Tools → UiPath Extensions), then restart the browser.
+- **Amazon shows a robot check (CAPTCHA)** — The bot must stop. Never bypass it. Try
+  later, or use the practice shop at
+  [webscraper.io/test-sites](https://webscraper.io/test-sites/e-commerce/allinone/phones/touch).
+
+## UiPath CLI (`uip`)
+
+Used at every level of Project 3. See the full guide:
+[`00-prerequisites/uipath-cli.md`](00-prerequisites/uipath-cli.md).
+
+- **`'uip' is not recognized`** — Open a new terminal after `npm install -g @uipath/cli`;
+  check `%APPDATA%\npm` is on your PATH.
+- **"running scripts is disabled on this system"** — Run once
+  `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`, or use `uip.cmd`.
+- **"not logged in" / token expired** — `uip login --interactive`, then `uip login status`.
+- **`uip rpa run-file` can't find Studio** — UiPath Studio must be installed and signed in
+  on this PC; the command works on Windows only.
+- **A command's options differ from the guide** — Run it with `--help`; the CLI updates
+  itself daily.

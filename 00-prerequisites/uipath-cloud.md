@@ -1,14 +1,15 @@
-# UiPath Automation Cloud (Community)
+# UiPath Automation Cloud (Community) and UiPath Studio
 
-Project 3 (basic and advanced tiers) uses UiPath to build and run RPA automations. The
-free **Community** plan gives you everything the workshop needs.
+Project 3 uses UiPath at every level: Studio to build the PhoneDeals bot, Orchestrator to
+run it on a schedule. The free **Community** plan gives you everything the workshop needs.
 
 ## What you'll set up
 
 - A free **UiPath Automation Cloud (Community)** account.
 - MFA turned on for safety.
+- **UiPath Studio** on your laptop, with the browser extension for Chrome or Edge.
 
-The Community plan includes **Studio (Pro)**, **StudioX**, **Orchestrator**, and
+The Community plan includes **Studio**, **StudioX**, **Orchestrator**, and
 **1 Attended + 1 Unattended** robot — enough for the whole project. **No credit card is
 required.**
 
@@ -47,13 +48,24 @@ and [UiPath pricing](https://www.uipath.com/pricing).
    **Studio/StudioX** available in the left navigation.
 4. Turn on **MFA**: open your profile / account settings and enable
    **multi-factor authentication**.
-5. **Install UiPath Studio on your laptop** (Windows 10/11 only). In Automation Cloud,
-   find **Download Studio** (on the home page or under the Studio area of the left
-   navigation), run the installer, and when Studio opens, **sign in** with the same
-   Community account. Studio then connects to your Orchestrator tenant automatically.
-   Do this at home: the installer is large.
-   *(On macOS/Linux, use **Studio Web** in the browser instead, and tell your instructor
-   before the workshop.)*
+5. **Install UiPath Studio on your laptop** (Windows 10/11 only). Do this at home: the
+   installer is large.
+   1. Download **UiPathStudioCommunity.msi**: in Automation Cloud use **Download Studio**
+      (home page or Resource Center), or the direct link
+      <https://download.uipath.com/UiPathStudioCommunity.msi>.
+   2. Run it and choose **Quick** install (installs for your user only, no admin rights
+      needed).
+   3. When Studio opens, **sign in** with the same Community account. If asked for a
+      profile, choose **UiPath Studio** (not StudioX). You can switch later in
+      **Home → Settings → License and Profile**.
+   4. Studio connects to your Orchestrator tenant automatically.
+6. **Install the browser extension** (Project 3 automates a website). In Studio:
+   **Home → Tools → UiPath Extensions → Chrome** (or **Edge**) → Install. Then open the
+   browser and make sure the **UiPath** extension is **enabled**. Restart the browser.
+7. **Then install the UiPath CLI**: [`uipath-cli.md`](uipath-cli.md).
+
+*(On macOS/Linux there is no desktop Studio. Tell your instructor before the workshop:
+you can pair with a Windows laptop for Project 3, or do Projects 1–2.)*
 
 ---
 
@@ -65,6 +77,7 @@ and [UiPath pricing](https://www.uipath.com/pricing).
 3. MFA is enabled on your account.
 4. **UiPath Studio** opens on your laptop and shows you signed in (top-right of Studio)
    with your Community account.
+5. The **UiPath** extension shows as enabled in Chrome or Edge.
 
 ---
 
@@ -79,6 +92,9 @@ and [UiPath pricing](https://www.uipath.com/pricing).
   robot, which is enough here. If a robot slot appears "in use," make sure a previous
   session isn't still connected.
 
-The detailed Orchestrator wiring (queues, retry/escalate) lives in the Project 3
-advanced guide:
-[`03-studiox-to-agentic-rpa/advanced/orchestrator_setup_guide.md`](../03-studiox-to-agentic-rpa/advanced/orchestrator_setup_guide.md).
+- **The bot can't attach to the browser** — The UiPath extension is missing or disabled.
+  Install it again from **Home → Tools → UiPath Extensions**, enable it, and restart the
+  browser.
+
+Deploying to Orchestrator, schedules and retries are in the Project 3 advanced guide:
+[`03-studiox-to-agentic-rpa/advanced/README.md`](../03-studiox-to-agentic-rpa/advanced/README.md).

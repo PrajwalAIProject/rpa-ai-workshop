@@ -11,14 +11,14 @@ passes, your laptop is ready.
 | :--: | ----------- | :--: | ---------- |
 | 1 | [Check your laptop](#step-1--check-your-laptop) | 5 min | Everything |
 | 2 | [Create free accounts](#step-2--create-free-accounts) | 15 min | Everything |
-| 3 | [Install the software](#step-3--install-the-software) | 30 min | Everything |
+| 3 | [Install the software](#step-3--install-the-software) | 45 min | Everything |
 | 4 | [Get the workshop repo](#step-4--get-the-workshop-repo) | 2 min | Everything |
-| 5 | [Install the Python packages](#step-5--install-the-python-packages) | 3 min | Projects 1 and 2 |
-| 6 | [Add your free AI key](#step-6--add-your-free-ai-key) | 5 min | Projects 1 and 2, expert level |
+| 5 | [Install the Python packages](#step-5--install-the-python-packages) | 3 min | All projects |
+| 6 | [Add your free AI key](#step-6--add-your-free-ai-key) | 5 min | Expert level of every project |
 | 7 | [Run the night-before test](#step-7--run-the-night-before-test) | 5 min | Everything |
 
 > Everything here is **free** and needs **no credit card**. You do **not** need an AWS
-> account for Projects 1 and 2.
+> account for any project.
 
 ---
 
@@ -41,6 +41,7 @@ passes, your laptop is ready.
 | **GitHub Education** *(recommended)* | The **Copilot Student** plan, with more AI usage than Copilot Free | [education.github.com/pack](https://education.github.com/pack) | Apply with your college email or ID card. **Approval takes 1–3 days**, so apply first. Copilot Free is enough if you're not approved in time. |
 | **Google** | The free Gemini AI key (Step 6) | [accounts.google.com](https://accounts.google.com/) | Your normal Gmail account works. |
 | **UiPath Automation Cloud (Community)** | UiPath Studio and Orchestrator (Project 3) | [cloud.uipath.com](https://cloud.uipath.com/) | Choose the free **Community** plan. Turn on MFA. Details: [`uipath-cloud.md`](uipath-cloud.md) |
+| **Kiro** | The AI agent IDE for Project 3 | Sign in inside Kiro (Step 3) | No new account: use your **Google** or **GitHub** login. |
 | **Groq** *(optional)* | A backup free AI key | [console.groq.com](https://console.groq.com/) | Only if Gemini doesn't work for you. |
 
 **Check:** you can sign in to GitHub, Google and UiPath Cloud, and your GitHub
@@ -56,7 +57,9 @@ Install in this order. Open a **new** terminal after each install so it sees the
 | 2 | **VS Code** | [code.visualstudio.com](https://code.visualstudio.com/) | Tick **"Add to PATH"** and **"Open with Code"**. Then install the **Python** extension (by Microsoft) | `code --version` | [`git-and-editor.md`](git-and-editor.md#2-install-vs-code) |
 | 3 | **Git** | [git-scm.com/download/win](https://git-scm.com/download/win) | Keep the default options. Then set your name and email (see below) | `git --version` | [`git-and-editor.md`](git-and-editor.md#3-install-git) |
 | 4 | **GitHub Copilot** (inside VS Code) | Built into VS Code | Sign in with GitHub (Accounts icon, bottom left), open **Chat**, and set the mode to **Agent** | Copilot Chat answers you | [`git-and-editor.md`](git-and-editor.md#4-sign-in-to-github-from-vs-code) |
-| 5 | **UiPath Studio** (desktop, Windows only) | Inside [cloud.uipath.com](https://cloud.uipath.com/) → **Download Studio** | Sign in with your Community account when Studio opens. The installer is large, so do this at home | Studio opens and shows you signed in | [`uipath-cloud.md`](uipath-cloud.md#steps) |
+| 5 | **UiPath Studio** (desktop, Windows only) | [UiPathStudioCommunity.msi](https://download.uipath.com/UiPathStudioCommunity.msi) (or **Download Studio** in cloud.uipath.com) | Choose **Quick** install, sign in, pick the **Studio** profile, then install the **UiPath browser extension** for Chrome/Edge. The installer is large, so do this at home | Studio opens and shows you signed in | [`uipath-cloud.md`](uipath-cloud.md#steps) |
+| 6 | **Kiro** (AI agent IDE) | [kiro.dev/downloads](https://kiro.dev/downloads/) | Sign in with Google or GitHub. The free tier (50 credits a month) is enough. Install it **before** the UiPath CLI | Kiro writes and runs `hello.py` | [`kiro-install.md`](kiro-install.md) |
+| 7 | **UiPath CLI** (`uip`), with Node.js and .NET 8 | In PowerShell: `irm https://download.uipath.com/uipath-cli/install.ps1 \| iex` | One command installs Node.js, the CLI, .NET 8 and UiPath skills for Kiro. Then open a new terminal and run `uip login --interactive` | `uip login status` shows your tenant | [`uipath-cli.md`](uipath-cli.md#quick-install-recommended-one-command) |
 
 After installing Git, set your identity once. Use your GitHub account's email:
 
@@ -73,6 +76,9 @@ Create hello.py that prints "Copilot works", then run it.
 ```
 
 Allow it to run the command. The terminal should print `Copilot works`.
+
+**Check, Kiro (Project 3):** open an empty folder in Kiro, choose **Vibe** in the Kiro
+panel, and type the same request with `"Kiro works"`. It should print `Kiro works`.
 
 ## Step 4 — Get the workshop repo
 
@@ -103,7 +109,7 @@ python -m pip install --upgrade pip
 pip install -r 00-prerequisites/requirements.txt
 ```
 
-This installs everything Projects 1 and 2 use:
+This installs everything the Python scripts in all three projects use:
 
 | Package | What it does |
 | ------- | ------------ |
@@ -113,6 +119,7 @@ This installs everything Projects 1 and 2 use:
 | `feedparser` | Reads RSS news feeds |
 | `openai` | Talks to the free AI service (Gemini or Groq) |
 | `python-dotenv` | Loads your secret key from the `.env` file |
+| `openpyxl` | Reads the Excel file your UiPath bot writes (Project 3) |
 
 *(Optional: create a virtual environment first, so these packages stay separate. See
 [`python-setup.md`](python-setup.md#3-create-and-activate-a-virtual-environment).)*
@@ -120,12 +127,13 @@ This installs everything Projects 1 and 2 use:
 **Check:** this prints `all imports OK`:
 
 ```bash
-python -c "import yfinance, requests, bs4, openai, dotenv, feedparser; print('all imports OK')"
+python -c "import yfinance, requests, bs4, openai, dotenv, feedparser, openpyxl; print('all imports OK')"
 ```
 
 ## Step 6 — Add your free AI key
 
-The **expert** levels of Projects 1 and 2 call an AI model, which needs a free key.
+The **expert** levels of all three projects call an AI model, which needs one free key
+(in Project 3, the watcher agent's morning report).
 
 1. Open [aistudio.google.com/apikey](https://aistudio.google.com/apikey), sign in with
    Google, click **Create API key** and copy it (it starts with `AIza`).
@@ -157,8 +165,11 @@ these one at a time:
 | `python 01-stock-market-analyzer/expert/ai_stock_report.py "Infosys" --dry-run` | The AI prompt the script would send |
 | `python 02-morning-news-digest/basic/news_digest.py cricket` | Today's cricket headlines |
 | Copilot Chat (Agent mode): *"Create hello.py that prints Copilot works, then run it."* | `Copilot works` in the terminal |
+| `python 03-studiox-to-agentic-rpa/expert/test_watcher_agent.py` | `All watcher checks passed.` |
+| `uip --version` and `uip login status` *(Project 3)* | A version number, and your tenant name |
+| Kiro (Vibe): *"Create hello.py that prints Kiro works, then run it."* *(Project 3)* | `Kiro works` in Kiro's terminal |
 
-**All six work? Your laptop is ready.** If one fails, open the guide for that step or
+**All of these work? Your laptop is ready.** (Doing only Projects 1–2? The first six are enough.) If one fails, open the guide for that step or
 [`TROUBLESHOOTING.md`](../TROUBLESHOOTING.md), and message your instructor **before**
 the workshop day.
 
@@ -166,22 +177,22 @@ the workshop day.
 
 ## What each project needs
 
-| Project and level | Python | VS Code + Copilot | Free AI key | UiPath Studio + Cloud |
-| ----------------- | :----: | :---------------: | :---------: | :-------------------: |
-| **1** Stock analyzer: basic and advanced | ✅ | ✅ | — | — |
-| **1** Stock analyzer: expert (AI report) | ✅ | ✅ | ✅ | — |
-| **2** News digest: basic and advanced | ✅ | ✅ | — | — |
-| **2** News digest: expert (AI editor) | ✅ | ✅ | ✅ | — |
-| **3** StudioX to agentic RPA: basic and advanced | ✅ | — | — | ✅ |
-| **3** StudioX to agentic RPA: expert (watcher agent) | ✅ | — | — | ✅ |
+| Project and level | Python | VS Code + Copilot | UiPath Studio + Cloud | UiPath CLI | Kiro | Free AI key |
+| ----------------- | :----: | :---------------: | :-------------------: | :--------: | :--: | :---------: |
+| **1** Stock analyzer: basic and advanced | ✅ | ✅ | — | — | — | — |
+| **1** Stock analyzer: expert (AI report) | ✅ | ✅ | — | — | — | ✅ |
+| **2** News digest: basic and advanced | ✅ | ✅ | — | — | — | — |
+| **2** News digest: expert (AI editor) | ✅ | ✅ | — | — | — | ✅ |
+| **3** PhoneDeals: basic (phones under ₹20K → Excel) | ✅ | — | ✅ | ✅ | ✅ | — |
+| **3** PhoneDeals: advanced (deploy + schedule) | ✅ | — | ✅ | ✅ | ✅ | — |
+| **3** PhoneDeals: expert (watcher agent) | ✅ | — | ✅ | ✅ | ✅ | ✅ |
 
 **Optional extras:**
 
 - **Gmail App Password**: only to email the Project 2 briefing to yourself. See the
   [Project 2 expert README](../02-morning-news-digest/expert/README.md).
-- **Kiro** and an **AWS** account: only for the optional Kiro part of Project 3 expert.
-  See [`kiro-install.md`](kiro-install.md) and [`aws-free-tier.md`](aws-free-tier.md).
-  Skip them unless your instructor asks.
+- **An AWS account is not needed.** [`aws-free-tier.md`](aws-free-tier.md) is only for
+  students who want to host the Project 3 watcher in the cloud on their own.
 
 ## Quick fixes
 
@@ -190,10 +201,14 @@ the workshop day.
 | `'python' is not recognized` | Re-run the Python installer, choose **Modify**, and tick **"Add python.exe to PATH"**. Or use `py` instead of `python`. Then open a new terminal. |
 | `'git' is not recognized` | Close and reopen VS Code after installing Git. |
 | `pip install` fails on college Wi-Fi | Use your phone's hotspot, and run `python -m pip install --upgrade pip` first. |
+| `CERTIFICATE_VERIFY_FAILED`, `SSLError`, or "No headlines could be downloaded" | The network is inspecting secure traffic (common on office and some college networks). Switch to your phone's hotspot. Or run `pip install truststore` and add `import truststore; truststore.inject_into_ssl()` as the first line of the script. |
 | No Copilot icon or Chat panel | Update VS Code (**Help → Check for Updates**) and install **GitHub Copilot Chat** from Extensions. |
 | Copilot writes code but doesn't run it | Switch the Chat mode drop-down to **Agent**. |
 | "You've reached your monthly chat limit" | Copilot Free gives 50 chat requests a month. Save them for the lab, and apply for GitHub Education. |
 | UiPath Studio opens as StudioX | Choose the **Studio** profile when it starts, or switch profiles in its settings. |
+| `'uip' is not recognized` | Open a new terminal after `npm install -g @uipath/cli`. See [`uipath-cli.md`](uipath-cli.md). |
+| PowerShell: "running scripts is disabled" when you run `uip` | Run once: `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`, or type `uip.cmd`. |
+| Kiro says "out of credits" | The 50 free credits reset monthly. Use the reference files in the repo. |
 
 More fixes: [`TROUBLESHOOTING.md`](../TROUBLESHOOTING.md).
 

@@ -1,52 +1,71 @@
-# Project 3 — From StudioX to Agentic RPA
+# Project 3 — From StudioX to Agentic RPA (Kiro + UiPath)
 
-The centerpiece track. Every tier assumes you already know **StudioX** from BCG701 and
-starts past it, climbing the ladder: professional **UiPath Studio**, cloud
-**Orchestrator**, and an **agentic AI** layer authored with **Kiro**. StudioX did the
-recording, Studio and Orchestrator do the running, and the agent does the judging.
+You already know **StudioX** from BCG701. This project climbs the rest of the automation
+ladder with one real bot, **PhoneDeals**: it lists every smartphone under ₹20,000 from
+amazon.in into Excel. Each level makes the same bot more professional, then puts an AI
+agent in charge of watching it.
 
-Work up through the tiers. Each tier is a complete, runnable deliverable on its own.
+| Tool | What it is | Used for |
+| ---- | ---------- | -------- |
+| **UiPath Studio** | The professional UiPath designer (StudioX's big brother) | Building the bot |
+| **UiPath CLI** (`uip`) | UiPath's official command line | Running, checking, packing, deploying and starting the bot from a terminal, so an AI agent can do it too |
+| **Kiro** | An AI agent IDE that works from a written plan (a *spec*) | Writing the spec, explaining each step, writing scripts, running and checking the bot, and building the watcher agent |
 
-## The three tiers
+```mermaid
+flowchart LR
+    A[StudioX<br>BCG701] --> B[Basic<br>Studio + Kiro + uip<br>phones under 20K to Excel]
+    B --> C[Advanced<br>uip deploy + Orchestrator<br>daily, retries, failures]
+    C --> D[Expert<br>Kiro builds a watcher agent<br>retry / escalate / stop + AI report]
+```
+
+## The three levels
 
 ### Basic — [`basic/README.md`](basic/README.md)
 
-Move from the StudioX citizen-developer canvas into the full **UiPath Studio Pro** IDE by
-rebuilding one of your own BCG701 Excel-automation exercises — same logic, but with
-variables, arguments, and a reusable workflow structure instead of a flat recording.
-**Done** when your Studio workflow runs and produces the correct output workbook.
+Kiro writes the **spec** for the PhoneDeals bot. You build it in **UiPath Studio**: open the
+amazon.in search, extract the results table, keep phones under ₹20,000, sort them, write
+`PhonesUnder20K.xlsx`. Kiro writes `check_phones.py`, then runs the bot with
+`uip rpa run-file` and checks the Excel file. **Done** when the checker prints PASSED.
 
 ### Advanced — [`advanced/README.md`](advanced/README.md)
 
-Run the bot the way a company actually runs one. Publish the Studio project to
-**Orchestrator**, schedule it **unattended**, add a **queue**, and build a deliberate
-failure case with a **retry-or-escalate** rule — the single most interview-relevant RPA
-skill there is. The full walkthrough is in
-[`advanced/orchestrator_setup_guide.md`](advanced/orchestrator_setup_guide.md). **Done**
-when the job runs unattended on a schedule and the queue correctly retries or escalates
-the failure case.
+Run it like a company: arguments, a **Retry Scope**, clear business vs application
+exceptions, and a dated price-history sheet. Kiro writes `deploy.ps1`, which uses the UiPath
+CLI to **analyze, pack and deploy** the bot to **Orchestrator**. You start it with
+`uip or jobs start`, schedule it daily at 09:00, and **break it on purpose**. **Done** when
+it runs from Orchestrator and you have saved your failed jobs.
 
 ### Expert — [`expert/README.md`](expert/README.md)
 
-Add the agentic layer. Use **Kiro** (a spec-driven, agentic IDE) to describe a **watcher
-agent** in plain English, and run a self-contained Python watcher that reads an
-Orchestrator job log and decides, per job, whether to **retry**, **escalate**, or
-**stop**. **Done** when the watcher prints a correct decision and reason for each job in
-the sample log, and you can author or extend the agent from its spec in Kiro.
+Kiro builds a **watcher agent** from a spec. It reads the bot's jobs and decides **retry,
+escalate or stop** for each one (never retrying a CAPTCHA). With your OK, it reruns jobs
+through the UiPath CLI, and a free AI model writes the morning report. Finally, you connect
+Kiro to UiPath through the CLI's **MCP server**. **Done** when the watcher's decisions on
+your real jobs are right and tested.
 
-## Prerequisites
+## Before you start
 
-- Python 3.11+ and the shared dependencies — see
-  [`00-prerequisites/python-setup.md`](../00-prerequisites/python-setup.md).
-- Git and a code editor — see
-  [`00-prerequisites/git-and-editor.md`](../00-prerequisites/git-and-editor.md).
-- **Basic and advanced tiers:** a free **UiPath Automation Cloud (Community)** account —
-  see [`00-prerequisites/uipath-cloud.md`](../00-prerequisites/uipath-cloud.md).
-- **Expert tier:** **Kiro** installed and signed in — see
-  [`00-prerequisites/kiro-install.md`](../00-prerequisites/kiro-install.md). Kiro does
-  **not** require an AWS account. You only need an **AWS account** if you choose to host
-  the watcher on AWS — see
-  [`00-prerequisites/aws-free-tier.md`](../00-prerequisites/aws-free-tier.md).
+- Set up **UiPath Studio** (with the browser extension), the **UiPath CLI** and **Kiro**:
+  see the Project 3 part of [`00-prerequisites/README.md`](../00-prerequisites/README.md).
+- Read the **rules of the road** in the [basic README](basic/README.md#rules-of-the-road-read-this-first):
+  one polite search per run, no login, and the bot stops on a robot check. If amazon.in
+  blocks you, every level works on the practice shop at
+  [webscraper.io/test-sites](https://webscraper.io/test-sites/e-commerce/allinone/phones/touch).
+- Kiro's free tier (50 credits a month) covers all three levels: about 6 prompts each.
 
-New to any term here? Check the [`GLOSSARY.md`](../GLOSSARY.md). Stuck on setup or a run?
-See [`TROUBLESHOOTING.md`](../TROUBLESHOOTING.md).
+## Reference files in this folder
+
+| Path | What it is |
+| ---- | ---------- |
+| [`basic/kiro-specs/phone-deals/`](basic/kiro-specs/phone-deals/requirements.md) | Reference spec: requirements, design, tasks |
+| [`basic/check_phones.py`](basic/check_phones.py) | Checks `PhonesUnder20K.xlsx` |
+| [`expert/kiro-specs/watcher-agent.spec.md`](expert/kiro-specs/watcher-agent.spec.md) | The watcher agent's spec |
+| [`expert/watcher_agent.py`](expert/watcher_agent.py), [`expert/test_watcher_agent.py`](expert/test_watcher_agent.py) | Reference watcher and its tests |
+| [`expert/sample_orchestrator_log.json`](expert/sample_orchestrator_log.json) | Five sample PhoneDeals jobs, for working without Orchestrator |
+| [`examples/`](examples/README.md) | Finished third-party UiPath projects to study |
+
+There is no reference `Main.xaml` for the bot: Amazon's page changes often, so you build
+the extraction live with Studio's Table Extraction wizard.
+
+New to a term? See [`GLOSSARY.md`](../GLOSSARY.md). Stuck? See
+[`TROUBLESHOOTING.md`](../TROUBLESHOOTING.md).

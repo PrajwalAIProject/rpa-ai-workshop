@@ -1,125 +1,96 @@
-# Install Kiro (Project 3 expert only)
+# Install Kiro — Project 3
 
-The Project 3 expert tier uses **Kiro** to describe the watcher agent as a spec in plain
-English. You only need this for that tier.
+**Kiro** is an AI agent IDE (it looks like VS Code). Its special trick is **spec-driven
+development**: before writing anything, Kiro writes a plan you can read and fix, then
+builds from it. In Project 3 Kiro is your teammate at every level:
 
-> AWS and Kiro update their terms, pricing, and screens often. The facts below were
-> accurate at the time of writing — **confirm current details on
-> [kiro.dev](https://kiro.dev/) before the session.** Kiro facts are attributed to
-> [kiro.dev](https://kiro.dev/). Content was rephrased for compliance with licensing
-> restrictions.
+| Level | Kiro… |
+| ----- | ----- |
+| Basic | writes the PhoneDeals spec, explains each Studio step, writes `check_phones.py`, runs the bot with the UiPath CLI and checks the result |
+| Advanced | updates the spec, writes `deploy.ps1`, explains Workflow Analyzer errors, reads your failed jobs |
+| Expert | builds the watcher agent from its spec, adapts it to your real jobs, and talks to UiPath through MCP |
 
-## What you'll set up
+Allow about **10 minutes**. **No AWS account and no credit card needed.**
 
-- **Kiro** installed on your machine.
-- Signed in so the agent features are active.
-
-**What Kiro is:** AWS's AI-powered, **agentic, spec-driven IDE** — a **VS Code-based
-fork**, powered by Claude. It went **GA in May 2026** and is the successor to Amazon Q
-Developer. Downloading it is **free**.
+> Kiro changes its plans and screens often. These facts were checked on
+> [kiro.dev](https://kiro.dev/) in October 2026; confirm current details at
+> [kiro.dev/pricing](https://kiro.dev/pricing/) before the session.
 
 ---
 
-## Before you start
+## 1. Download and install (Windows)
 
-**You do NOT need an AWS account to use Kiro.** You can sign in with **GitHub**,
-**Google**, an **AWS Builder ID**, or **AWS IAM Identity Center** — a plain AWS account
-is not required. Content was rephrased for compliance with licensing restrictions.
-Sources: [kiro.dev FAQ](https://kiro.dev/faq/) and
-[Kiro authentication docs](https://kiro.dev/docs/getting-started/authentication/).
+1. Go to [kiro.dev/downloads](https://kiro.dev/downloads/) and download the **Windows**
+   installer (x64; ARM64 if your laptop has an ARM chip).
+2. Run it and keep the default location
+   (`C:\Users\<YourName>\AppData\Local\Programs\Kiro`). If SmartScreen warns you, check
+   the file came from kiro.dev, then **More info → Run anyway**.
+3. Launch **Kiro**.
 
-### System requirements
+macOS and Linux builds are on the same page.
 
-- **macOS** (Intel and Apple Silicon)
-- **Windows 10/11** on **x64 or ARM64**
-- **Linux**: Ubuntu 24+, Debian 13+, Fedora 40+, Arch, or Mint 22+ (x86_64 / ARM64)
+![kiro.dev download page](images/kiro-download.png)
+<br><sub>Screenshot needed — see <a href="images/README.md">images/README.md</a>. Capture: the kiro.dev downloads page with the Windows installer.</sub>
 
----
+## 2. Sign in
 
-## Install flow at a glance
+On first launch, sign in with **Google**, **GitHub** or an **AWS Builder ID**. Any of
+them works; an AWS account is **not** needed. Signing in turns on the agent.
 
-_From download to a working agent, in order._
+**Next:** install the UiPath CLI with its one-line installer
+([`uipath-cli.md`](uipath-cli.md#quick-install-recommended-one-command)). It finds Kiro and
+adds **UiPath skills** to it, so Kiro knows the UiPath commands.
 
-```mermaid
-flowchart LR
-    A[Download from kiro.dev] --> B[Run installer]
-    B --> C[Accept license]
-    C --> D[Choose install location]
-    D --> E[Launch Kiro]
-    E --> F[Sign in - GitHub, Google, or AWS Builder ID]
-    F --> G[Verify with a trivial spec]
-```
+## 3. The free tier is enough
 
----
+| Plan | Price | Credits a month |
+| ---- | ----- | --------------- |
+| **Free** | $0 | **50** (Claude Sonnet 4.5 and open-weight models such as Qwen3 Coder) |
+| Pro | $20 | 1,000 |
 
-## Steps (Windows)
+Project 3 uses about **6 prompts per level**. To save credits:
 
-1. Go to the official site **[kiro.dev](https://kiro.dev/)** and open the
-   getting-started / installation page. Download the **Windows installer**.
+- Use **Vibe** chat for small questions and **Spec** only to create or update a spec.
+- Write one clear prompt instead of many small ones (the prompts in the READMEs are ready
+  to paste).
+- Don't ask Kiro to rewrite files that already work.
 
-   ![kiro.dev download page](images/kiro-download.png)
-   <br><sub>Screenshot needed — see <a href="images/README.md">images/README.md</a>. Capture: the kiro.dev download / getting-started page showing the Windows installer download.</sub>
-2. Run the installer.
-3. Accept the **AWS Customer Agreement / license** when prompted.
-4. Choose the install location, or keep the default
-   (`C:\Users\<YourName>\AppData\Local\Programs\Kiro`).
-5. Finish the installer and **launch Kiro**.
+Source: [kiro.dev/pricing](https://kiro.dev/pricing/).
 
-**macOS / Linux:** download the matching build from
-[kiro.dev](https://kiro.dev/) and follow its platform installer.
+## 4. Learn the three Kiro features Project 3 uses
 
-### First launch / sign-in
+| Feature | What it is | Where it lives |
+| ------- | ---------- | -------------- |
+| **Specs** | A plan in three files: `requirements.md` (what), `design.md` (how) and `tasks.md` (steps). Start one from the Kiro panel → **Spec**. | `.kiro/specs/<name>/` |
+| **Steering** | Project rules Kiro reads before every answer ("this is a UiPath project, use VB.NET…") | `.kiro/steering/*.md` |
+| **MCP servers** | Tools Kiro can use, such as the UiPath CLI (`uip mcp serve`) | `.kiro/settings/mcp.json` |
 
-1. On first launch, **sign in to authenticate**. Kiro lets you sign in with **GitHub**,
-   **Google**, an **AWS Builder ID**, or **AWS IAM Identity Center** — **no AWS account
-   is required**. See [kiro.dev FAQ](https://kiro.dev/faq/) and
-   [Kiro authentication docs](https://kiro.dev/docs/getting-started/authentication/).
-2. Signing in activates the agent features.
+Kiro also has **agent hooks** (automatic actions, for example "on save, run the
+analyzer"), stored in `.kiro/hooks/`. The advanced level shows one.
 
-### Free tier, credits, and models
+Docs: [specs](https://kiro.dev/docs/specs/) · [steering](https://kiro.dev/docs/steering/) ·
+[MCP](https://kiro.dev/docs/mcp/configuration/) · [hooks](https://kiro.dev/docs/hooks/).
 
-Downloading Kiro is free, and the **free tier is all you need** for this workshop.
-Content was rephrased for compliance with licensing restrictions.
+## 5. Verify (3 minutes)
 
-- The **Kiro Free tier gives 50 credits per month** (perpetual — it renews every month).
-- Free-tier users signed in via **social logins** (GitHub/Google) or an **AWS Builder
-  ID** get **Claude Sonnet 4.5** plus **open-weight models** (for example **Qwen3
-  Coder**, **DeepSeek**, **MiniMax**), subject to rate limits.
-- Credits are **metered finely — down to 0.01 per task** — and the older separate
-  vibe/spec request limits are now unified into a **single credit pool**.
-- **For reference only** (you do **not** need to pay — students only need the free
-  tier): Pro ~**$20/mo**, Pro+ ~**$40/mo**, Pro Max ~**$100/mo**, Power ~**$200/mo**.
+1. **File → Open Folder** → any empty folder.
+2. Open the **Kiro** panel, choose **Vibe**, and type:
 
-> Kiro's pricing and credit amounts change often. **Confirm the current terms** at
-> [kiro.dev/pricing](https://kiro.dev/pricing/) and
-> [kiro.dev/docs/billing](https://kiro.dev/docs/billing/) before the session.
+   ```text
+   Create hello.py that prints "Kiro works", then run it.
+   ```
+3. Kiro writes the file and asks before running `python hello.py`. Allow it. The terminal
+   prints `Kiro works`.
 
-Sources: [kiro.dev/pricing](https://kiro.dev/pricing/),
-[Kiro pricing plans are live](https://kiro.dev/blog/pricing-plans-are-live/), and
-[kiro.dev FAQ](https://kiro.dev/faq/).
-
-Full official docs: [kiro.dev/docs](https://kiro.dev/docs).
-
----
-
-## Verify
-
-1. Kiro opens and you are **signed in** (agent features available).
-2. Create a trivial spec to confirm the agent works: start a new spec, type a one-line
-   request (for example, "a function that adds two numbers"), and confirm Kiro responds.
-3. You can open the repo's existing spec at
-   [`03-studiox-to-agentic-rpa/expert/kiro-specs/watcher-agent.spec.md`](../03-studiox-to-agentic-rpa/expert/kiro-specs/watcher-agent.spec.md).
-
----
+Kiro **asks before every terminal command**. Read each one before you allow it. If you
+don't understand a command, ask: *"What does this command do?"*
 
 ## Common errors and fixes
 
-- **Sign-in fails / agent features greyed out** — Confirm you're signed in with one of
-  the supported providers (GitHub, Google, AWS Builder ID, or AWS IAM Identity Center)
-  and that your region is supported. You do not need an AWS account.
-- **Agent requests stop working** — You may have used up the free monthly credit
-  allocation; check your usage. The free tier resets monthly.
-- **Installer blocked by Windows SmartScreen** — Confirm you downloaded from
-  **kiro.dev**, then choose **More info → Run anyway**.
-- **Can't reach the Claude backend** — Check your network/proxy (college Wi-Fi often
-  needs a proxy) and that you're signed in.
+| You see | Fix |
+| ------- | --- |
+| Sign-in loops or the agent stays greyed out | Sign out and in again with Google, GitHub or AWS Builder ID. Allow pop-ups. On college Wi-Fi, try a phone hotspot. |
+| "Out of credits" | The 50 free credits reset every month. Use the reference files in the repo for the rest of the lab. |
+| Kiro can't run `python` or `uip` | Install them, then **restart Kiro** so it sees the new PATH. |
+| Kiro invents a UiPath activity that doesn't exist | Add the steering file from the basic README; it tells Kiro to say "not sure" instead of guessing. Check activity names in Studio. |
+| An old Kiro version stops connecting | Update Kiro (**Help → Check for Updates**). Very old versions stop working in November 2026. |

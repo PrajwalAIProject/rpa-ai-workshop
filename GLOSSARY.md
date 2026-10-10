@@ -63,10 +63,15 @@ root account.
 
 ### Kiro
 
-A spec-driven, agentic development environment used in Project 3 expert to describe the
-watcher agent in plain English. It does **not** require an AWS account — sign in with
-GitHub, Google, an AWS Builder ID, or AWS IAM Identity Center; see
+An AI agent IDE (it looks like VS Code) that works spec-first: it writes a plan
+(requirements, design, tasks) before it builds. Used at every level of Project 3. It does
+**not** require an AWS account: sign in with Google, GitHub or an AWS Builder ID; see
 [`00-prerequisites/kiro-install.md`](00-prerequisites/kiro-install.md).
+
+### MCP (Model Context Protocol)
+
+An open standard that lets an AI agent use outside tools. In Project 3 expert, the UiPath
+CLI runs as an MCP server (`uip mcp serve`) so Kiro can read and start UiPath jobs.
 
 ### LLM
 

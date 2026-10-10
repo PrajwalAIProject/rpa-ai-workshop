@@ -6,7 +6,7 @@ Companion code and guided labs for a hands-on, 5-hour **AI & RPA workshop** aime
 final-year engineering students who already know UiPath **StudioX** from BCG701. The
 workshop starts where that syllabus stops and climbs the automation ladder: from the
 StudioX desktop canvas into professional UiPath Studio, cloud Orchestrator, Python with
-cloud scheduling, and finally an **agentic AI** layer authored with Kiro.
+cloud scheduling, and finally an **agentic AI** layer built with Kiro and the UiPath CLI.
 
 Three projects, three tiers each (**basic → advanced → expert**). Nobody has to hit
 "expert" on all three — depth over breadth.
@@ -37,7 +37,7 @@ Three projects, three tiers each (**basic → advanced → expert**). Nobody has
 ## The learning ladder
 
 ```
-StudioX  →  UiPath Studio  →  Orchestrator  →  Agentic AI (Kiro)
+StudioX  →  UiPath Studio  →  Orchestrator  →  Agentic AI (Kiro + UiPath CLI)
 (desktop,    (professional     (scheduled,       (plain-English specs,
  citizen      IDE: variables,   unattended,       a watcher agent that
  developer)   arguments,        queues, retry/    decides retry / escalate
@@ -62,7 +62,7 @@ that sit alongside that ladder.
 | - | ------- | -------- | --------------- |
 | 1 | Stock Market Analyzer | [`01-stock-market-analyzer/README.md`](01-stock-market-analyzer/README.md) | Building with GitHub Copilot (agent-mode prompts in VS Code), company-name → stock lookup, web scraping (requests + BeautifulSoup), an AI-written report from a free AI API (Gemini / Groq) |
 | 2 | Morning News Digest | [`02-morning-news-digest/README.md`](02-morning-news-digest/README.md) | Built with GitHub Copilot: Indian + world RSS feeds with a topic filter, rule-based categories and an HTML news page, then a free AI editor (Gemini / Groq) that picks what matters, with optional Gmail delivery |
-| 3 | StudioX to Agentic RPA | [`03-studiox-to-agentic-rpa/README.md`](03-studiox-to-agentic-rpa/README.md) | Professional Studio, Orchestrator, queues and retry/escalate, Kiro specs, a runnable watcher agent |
+| 3 | StudioX to Agentic RPA | [`03-studiox-to-agentic-rpa/README.md`](03-studiox-to-agentic-rpa/README.md) | The PhoneDeals bot: phones under ₹20,000 from amazon.in into Excel, built in UiPath Studio with Kiro specs and run by the UiPath CLI; then deployed to Orchestrator with retries, and watched by a Kiro-built agent that decides retry / escalate / stop |
 
 Each project overview summarizes the basic → advanced → expert progression and links
 every tier README. Each tier README follows the same four-part shape: **What you'll
@@ -91,7 +91,7 @@ rpa-ai-workshop/
 ## More documentation
 
 - [`GLOSSARY.md`](GLOSSARY.md) — plain-English definitions for the terms used across the labs.
-- [`TROUBLESHOOTING.md`](TROUBLESHOOTING.md) — consolidated fixes for Python, API keys, network, AWS, Kiro, and UiPath.
+- [`TROUBLESHOOTING.md`](TROUBLESHOOTING.md) — consolidated fixes for Python, API keys, network, Kiro, the UiPath CLI, and UiPath.
 - [`docs/facilitator-guide.md`](docs/facilitator-guide.md) — running the room: rotation vs deep-dive, timing, pre-session checklist.
 - [`docs/course-alignment.md`](docs/course-alignment.md) — how the session extends BCG701 Course Outcomes.
 - [`CONTRIBUTING.md`](CONTRIBUTING.md) — fork, branch, and PR flow, plus where screenshots go.

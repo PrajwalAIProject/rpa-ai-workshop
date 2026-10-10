@@ -13,3 +13,6 @@ python-dotenv>=1.0       # expert: read the key from .env
 
 # ---- Project 2: morning news digest (also uses requests, openai, python-dotenv) ----
 feedparser>=6.0
+
+# ---- Project 3: PhoneDeals (the watcher's AI report also uses openai, python-dotenv) ----
+openpyxl>=3.1            # basic: check the Excel file the UiPath bot writes

@@ -1,7 +1,7 @@
-# AWS account + cost safety (Project 3 expert only)
+# AWS account + cost safety (optional, not needed for any level)
 
-You only need this if you reach the **Project 3 expert** tier, where you author the
-watcher-agent spec in **Kiro** (an AWS tool) and optionally host the watcher on AWS.
+**No level of this workshop needs AWS.** Kiro works without an AWS account. This guide is
+only for students who want, on their own, to host the Project 3 watcher in the cloud.
 This is the longest guide because getting it right is how you **avoid any charges**.
 
 > **Read this before you click anything.** AWS changed its free offering on
