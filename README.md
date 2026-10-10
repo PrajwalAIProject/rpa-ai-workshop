@@ -85,7 +85,7 @@ rpa-ai-workshop/
 ├── 01-stock-market-analyzer/     ← basic / advanced / expert
 ├── 02-morning-news-digest/       ← basic / advanced / expert
 ├── 03-studiox-to-agentic-rpa/    ← basic / advanced / expert
-└── slides/                       ← workshop deck (added later)
+└── slides/                       ← the workshop deck (HTML)
 ```
 
 ## More documentation
@@ -105,7 +105,7 @@ keys.**
 
 ## Slides
 
-The workshop deck PDF lands in [`slides/`](slides/) in a later phase.
+The talk deck is [`slides/the-agentic-leap.html`](slides/the-agentic-leap.html). Download it and open it in Chrome or Edge (press **N** for speaker notes, **O** for all slides). It works offline; slide 4's microphone needs internet.
 
 ## Credits and license
 
