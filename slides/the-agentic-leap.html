@@ -522,7 +522,7 @@ function videoBlock(){
 const slides = [
 
 // ---- 01-title.js ----
-{ theme:'dark', label:'The Agentic Leap', notes:`- Presenter keys: T starts the talk timer (top right, amber at 55 min, red at 60; Shift+T restarts it). O shows every slide so you can jump anywhere. N shows these notes. Slide 4 has a mic that listens to the room. Slides 5, 7, 8, 11, 12, 20 and 21 have buttons top right that you click live.
+{ theme:'dark', label:'The Agentic Leap', notes:`- Presenter keys: T starts the talk timer (top right, amber at 55 min, red at 60; Shift+T restarts it). O shows every slide so you can jump anywhere. N shows these notes. Slide 4 has a mic that listens to the room. Slides 5, 7, 8, 11, 12, 20, 21 and 25 have buttons top right that you click live; slide 15 plays the video.
 - Welcome. Say: "Today is about one jump: from bots that follow your steps to AI agents that choose the next step."
 - Point at the three boxes on the right. This is the whole talk in one picture: the RPA bot, then AI, then the AI agent. We meet each one in order.
 - Ask the room: "Who has built a StudioX bot this semester?" Most hands go up. "Good. You already know the first box."
@@ -2290,7 +2290,11 @@ html:`
   </div>`},
 
 // ---- 27-section-3.js ----
-{ theme:'dark', label:'Part 3: build it yourself', notes:`- Say: "Now you build it yourself. About 4 hours."
+{ theme:'dark', label:'Part 3: build it yourself', interactive:'poll', notes:`- Say: "Now you build it yourself. About 4 hours. But first, a quick poll."
+- Read the question and click each language as hands go up: "Who can code in Python? Java? React? .NET? Who knows none of them yet?" Clicked chips light up with a hand. Let the "none yet" group feel the pressure for a second.
+- Click "Surprise". Say: "Good news: it doesn't matter. Today you build all three projects without typing the code yourself. You describe the problem, an AI agent writes the code, and you check it." The nine boxes on the right light up: every level of every project.
+- Be honest about it: you still read what the AI wrote and test it. Knowing a language helps you check faster, so the people who raised their hands have an advantage, not a head start everyone else can't catch.
+- Projects 1 and 2: GitHub Copilot writes the Python. Project 3: Kiro writes the spec and the scripts, and you build the bot in UiPath Studio, like StudioX.
 - Point at the grid: three projects (the columns), three levels in each (the rows). You pick one column and climb as high as you can.
 - Projects 1 and 2 are Python built with GitHub Copilot (Stock Analyzer chatbot, News Digest). Project 3 is UiPath with Kiro and the UiPath CLI: the PhoneDeals bot. Details on the next slide.
 - In every project, AI arrives at the expert level. You do not need to finish all three projects, or even reach expert.
@@ -2313,15 +2317,50 @@ html:`
     .s27 .s27-up svg{transform:rotate(-90deg); font-size:24px;}
     .s27 .s27-up i{flex:1; width:3px; border-radius:2px; background:linear-gradient(to top, rgba(23,179,169,.15), var(--teal)); margin-top:2px;}
     .s27 .s27-cap{grid-column:2 / 5; font-size:15px; color:rgba(255,255,255,.75); text-align:center; margin:4px 0 0;}
+    .s27 .s27-poll{margin-top:4px;}
+    .s27 .s27-q{margin:0 0 10px; font:600 clamp(17px,1.6vw,21px)/1.3 'Sora',system-ui,sans-serif; color:rgba(255,255,255,.9);}
+    .s27 .s27-chips{display:flex; flex-wrap:wrap; gap:8px;}
+    .s27 .s27-chip{font:700 15px 'Inter',sans-serif; padding:8px 16px; border-radius:22px; border:1.5px solid rgba(255,255,255,.3); background:rgba(255,255,255,.06); color:#fff; cursor:pointer; transition:background .2s, border-color .2s, transform .2s;}
+    .s27 .s27-chip:hover{border-color:var(--teal);}
+    .s27 .s27-chip.on{background:var(--teal); border-color:var(--teal); color:var(--ink); transform:translateY(-2px);}
+    .s27 .s27-chip.on::after{content:" ✋";}
+    .s27 .s27-chip--none.on{background:var(--amber); border-color:var(--amber); color:#241A00;}
+    .s27.s27-surprise .s27-poll{opacity:.45;}
+    .s27 .s27-wow{margin-top:14px; border-radius:16px; padding:14px 18px; background:linear-gradient(135deg, rgba(242,177,52,.22), rgba(23,179,169,.2)); border:2px solid var(--amber); animation:s27-pop .5s cubic-bezier(.2,1.6,.4,1) 1;}
+    .s27 .s27-wow[hidden]{display:none;}
+    .s27 .s27-wow-h{margin:0; font:800 clamp(24px,2.6vw,34px)/1.1 'Sora',system-ui,sans-serif; color:var(--amber);}
+    .s27 .s27-wow-t{margin:6px 0 10px; font-size:clamp(17px,1.6vw,20px); line-height:1.35; color:#fff;}
+    .s27 .s27-wow-t b{color:#5EEAD4;}
+    .s27 .s27-wow-flow{margin:0; display:flex; flex-wrap:wrap; align-items:center; gap:6px 8px; color:#5EEAD4; font-weight:800;}
+    .s27 .s27-wow-flow span{font-size:14.5px; font-weight:700; padding:4px 11px; border-radius:20px; background:rgba(255,255,255,.1); color:#fff;}
+    .s27 .s27-wow-tools{margin:9px 0 0; font-size:14px; color:rgba(255,255,255,.75);}
+    .s27 .s27-c{transition:background .3s, border-color .3s;}
+    .s27 .s27-c.lit{background:var(--teal); border-color:var(--teal);}
+    .s27 .s27-c.lit:empty::before{content:"✓"; color:var(--ink);}
+    .s27 .s27-c.lit{color:var(--ink);}
+    @keyframes s27-pop{from{transform:scale(.85); opacity:0} to{transform:scale(1); opacity:1}}
+    @media (prefers-reduced-motion: reduce){ :root:not(.force-motion) .s27 *{animation:none !important; transition:none !important;} }
     @media (max-width:900px){ .s27 .s27-grid{grid-template-columns:1fr; gap:24px;} }
   </style>
   <div class="slide-inner s27">
+    <div class="play-dock"><button type="button" class="play-btn amber" data-act="surprise">🎁 Surprise</button></div>
     <div class="s27-grid">
       <div>
         <p class="reveal s27-part"><span class="part"><i class="done">✓</i><s></s><i class="done">✓</i><s></s><i class="now">3</i></span></p>
         <p class="eyebrow reveal">Part 3 of 3 · about 4 hours</p>
         <h1 class="title reveal" style="font-size:clamp(30px,4.3vw,56px);text-wrap:balance;">Now you build it yourself</h1>
-        <p class="lede reveal" style="text-wrap:pretty;">Three projects. Each has three levels: basic, advanced, expert. Pick one project and go as high as you can. You do not need to finish all three.</p>
+        <div class="s27-poll reveal">
+          <p class="s27-q">Quick poll: hands up if you can code in…</p>
+          <div class="s27-chips">
+            <button type="button" class="s27-chip">Python</button><button type="button" class="s27-chip">Java</button><button type="button" class="s27-chip">React</button><button type="button" class="s27-chip">.NET</button><button type="button" class="s27-chip s27-chip--none">None yet</button>
+          </div>
+        </div>
+        <div class="s27-wow" hidden>
+          <p class="s27-wow-h">🎁 It doesn’t matter!</p>
+          <p class="s27-wow-t">Today you build <b>all three projects</b> without typing code yourself.</p>
+          <p class="s27-wow-flow"><span>You write the problem</span>→<span>AI agents write the code</span>→<span>You check it</span></p>
+          <p class="s27-wow-tools">GitHub Copilot: Projects 1–2 · Kiro + UiPath: Project 3</p>
+        </div>
       </div>
       <div class="reveal s27-mx" role="img" aria-label="Three projects as columns, three levels as rows. You pick one project and climb from basic to advanced to expert. The expert level adds AI.">
         <span></span><span></span><span></span><span class="s27-pick">your pick</span><span></span>
@@ -2337,7 +2376,7 @@ html:`
         <span></span><p class="s27-cap">Climb as high as you can.</p>
       </div>
     </div>
-    <p class="takeaway reveal"><b>One project done well beats three half-done.</b></p>
+    <p class="takeaway reveal"><b>Pick one project and climb:</b> basic → advanced → expert. One project done well beats three half-done.</p>
   </div>`},
 
 // ---- 28-projects.js ----
@@ -2556,51 +2595,62 @@ html:`
   </div>`},
 
 // ---- 31-closing.js ----
-{ theme:'dark', label:'Five ideas to remember', notes:`- Leave this slide up during questions and the break.
-- Read the five ideas slowly, one by one. Each icon is the same one used earlier in the talk: robot = the bot, lightbulb = AI, the loop = the agent.
-- Ask the room: "Which of these five was new for you today?" Take two or three answers.
-- Point at the QR code: the repo has all 3 projects, each with 3 levels (basic, advanced, expert), setup guides and starter code. Start at basic.
-- Remind them: one project done well beats three half-done.
-- Thank the college and the faculty for having you.`, html:`
+{ theme:'dark', label:'Your problem is your startup', notes:`- This is the last message of the talk. Slow down. Say: "Today you watched AI write code, read invoices and run bots. So here is the real lesson: the code is getting cheap. A real problem, clearly described, is what is valuable now."
+- Walk the four steps. Step 2 is the one they practised all day: the Copilot prompts in Projects 1 and 2 and the Kiro spec in Project 3 are problem statements written clearly. Step 4 is the honest part: you still need to understand enough to check what the AI built. That is the skill, not typing code.
+- The story: Alakh Pandey was a physics teacher, not a software engineer. He saw that good coaching was too expensive for most students, and in 2016 started teaching free on YouTube. PhysicsWallah became India's 101st unicorn in June 2022, valued at $1.1 billion. (Unicorn = a startup worth $1 billion or more.) He started with a problem, not with a business plan or code.
+- Point at the amber card: "Tonight, write one problem statement with this template. Who has the problem, why it hurts, how they manage today, and what you will build." Read the example about shop owners: it is exactly the kind of problem an RPA bot plus an AI agent can solve.
+- Be honest: not every idea becomes a unicorn. But every unicorn started as one person who took one problem seriously. Start small: one user, one problem, one working version.
+- Ask the room: "Which problem in your hostel, your home or your town would you like to fix?" Take two or three answers.
+- Point at the QR code: the repo has the 3 projects and every prompt. Then thank the college and the faculty for having you.`, html:`
   <div class="slide-inner s31">
     <style>
-      .s31 .closing-grid{display:grid; gap:clamp(24px,4vw,64px); align-items:center;}
-      .s31 h1.title{margin-bottom:14px;}
-      .s31 .s31-list{list-style:none; margin:0; padding:0; display:grid; gap:10px;}
-      .s31 .s31-list li{display:flex; align-items:center; gap:14px; font-size:clamp(16.5px,1.6vw,20px); line-height:1.35; color:rgba(255,255,255,.86);}
-      .s31 .s31-list b{color:#fff;}
-      .s31 .s31-n{flex-shrink:0; width:18px; text-align:right; font:700 15px 'JetBrains Mono',monospace; color:rgba(255,255,255,.5);}
-      .s31 .s31-list .icon-circle{border:1.5px solid rgba(255,255,255,.3); box-shadow:none;}
-      .s31 .s31-k{display:inline-block; font:700 max(13px,.78em) 'JetBrains Mono',monospace; letter-spacing:.04em; padding:1px 7px; border-radius:6px; background:rgba(23,179,169,.2); color:#5EEAD4; vertical-align:.08em;}
-      .s31 .s31-thanks{margin:22px 0 4px; font:700 clamp(22px,2.3vw,30px)/1.2 'Sora',system-ui,sans-serif; color:#fff;}
-      .s31 .s31-by{margin:0; font-size:14px; color:rgba(255,255,255,.65);}
-      .s31 .s31-qr{text-align:center; width:clamp(170px,19vw,220px);}
-      .s31 .s31-qr p{margin:10px 0 0; font-size:14px; color:rgba(255,255,255,.75);}
+      .s31 .s31-grid{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:clamp(20px,3vw,44px); align-items:start;}
+      .s31 h1.title{margin:0 0 6px; font-size:clamp(28px,3.3vw,44px); line-height:1.12; text-wrap:balance;}
+      .s31 .s31-lede{margin:0 0 14px; font-size:clamp(16px,1.4vw,18.5px); color:rgba(255,255,255,.8);}
+      .s31 .s31-flow{display:flex; align-items:stretch; gap:6px;}
+      .s31 .s31-step{flex:1 1 0; min-width:0; display:flex; flex-direction:column; align-items:flex-start; gap:5px; padding:10px 12px; border-radius:13px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14); position:relative;}
+      .s31 .s31-step:first-child{border-color:var(--amber); background:rgba(242,177,52,.14);}
+      .s31 .s31-step .icon-circle{border:1.5px solid rgba(255,255,255,.3); box-shadow:none;}
+      .s31 .s31-step b{font:700 clamp(15px,1.3vw,16.5px)/1.2 'Sora',system-ui,sans-serif; color:#fff;}
+      .s31 .s31-step small{font-size:clamp(13.5px,1.1vw,14.5px); line-height:1.3; color:rgba(255,255,255,.7);}
+      .s31 .s31-n{position:absolute; top:8px; right:10px; font:700 13px 'JetBrains Mono',monospace; color:rgba(255,255,255,.45);}
+      .s31 .s31-arr{align-self:center; color:#5EEAD4; font-weight:800;}
+      .s31 .s31-row{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); gap:12px; margin-top:12px;}
+      .s31 .s31-story{border-radius:13px; padding:11px 14px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14); font-size:clamp(14px,1.15vw,15px); line-height:1.4; color:rgba(255,255,255,.82);}
+      .s31 .s31-story .s31-k{display:block; margin-bottom:4px; font:700 13px 'JetBrains Mono',monospace; letter-spacing:.05em; text-transform:uppercase; color:#5EEAD4;}
+      .s31 .s31-story b{color:#fff;}
+      .s31 .s31-story strong{color:var(--amber);}
+      .s31 .s31-tpl{border-radius:13px; padding:11px 14px; background:rgba(242,177,52,.12); border:1.5px solid var(--amber); font-size:clamp(14px,1.15vw,15px); line-height:1.45; color:#fff;}
+      .s31 .s31-tpl .s31-k{display:block; margin-bottom:4px; font:700 13px 'JetBrains Mono',monospace; letter-spacing:.05em; text-transform:uppercase; color:var(--amber);}
+      .s31 .s31-tpl i{font-style:normal; color:var(--amber); font-weight:700;}
+      .s31 .s31-tpl em{display:block; margin-top:5px; font-style:normal; color:rgba(255,255,255,.72);}
+      .s31 .s31-qr{text-align:center; width:clamp(160px,17vw,200px);}
+      .s31 .s31-qr p{margin:8px 0 0; font-size:14px; color:rgba(255,255,255,.75);}
       .s31 .s31-qr p.s31-link{margin-top:4px; color:var(--teal); font-family:'JetBrains Mono',monospace; font-size:13px; line-height:1.4; overflow-wrap:anywhere;}
-      @media (max-width:640px){ .s31 .s31-qr{margin:0 auto;} }
+      .s31 .s31-thanks{margin:14px 0 2px; font:700 clamp(20px,2vw,26px)/1.2 'Sora',system-ui,sans-serif; color:#fff;}
+      .s31 .s31-by{margin:0; font-size:14px; color:rgba(255,255,255,.65);}
+      @media (max-width:900px){ .s31 .s31-grid, .s31 .s31-row{grid-template-columns:1fr;} .s31 .s31-flow{flex-direction:column;} .s31 .s31-arr{transform:rotate(90deg);} .s31 .s31-qr{margin:0 auto;} }
     </style>
-    <div class="closing-grid" style="grid-template-columns:1fr auto;">
+    <div class="s31-grid">
       <div>
         <p class="eyebrow reveal">Take it home</p>
-        <h1 class="title reveal">Five ideas to remember</h1>
-        <ol class="s31-list">
-          <li class="reveal"><span class="s31-n">1</span><span class="icon-circle" style="--d:44px;--c:var(--slate);">${svgIcon('fa-robot')}</span><span><b>RPA = the hands.</b> It follows the steps you wrote.</span></li>
-          <li class="reveal"><span class="s31-n">2</span><span class="icon-circle" style="--d:44px;--c:var(--teal-deep);">${svgIcon('fa-lightbulb')}</span><span><b>AI = the judgment.</b> An LLM guesses the next word: fluent, but it can be wrong.</span></li>
-          <li class="reveal"><span class="s31-n">3</span><span class="icon-circle" style="--d:44px;--c:var(--teal);">${svgIcon('fa-rotate')}</span><span><b>An agent loops:</b> <span class="s31-k">LOOK</span> → <span class="s31-k">THINK</span> → <span class="s31-k">ACT</span> → <span class="s31-k">CHECK</span>, until the goal is met.</span></li>
-          <li class="reveal"><span class="s31-n">4</span><span class="icon-circle" style="--d:44px;--c:conic-gradient(var(--slate) 0 33%, var(--teal) 0 67%, var(--amber) 0);">${svgIcon('fa-layer-group')}</span><span><b>Real systems are hybrid:</b> bots do the work, agents handle surprises, people approve risky steps.</span></li>
-          <li class="reveal"><span class="s31-n">5</span><span class="icon-circle" style="--d:44px;--c:var(--teal);">${svgIcon('fa-bolt')}</span><span><b>Your BCG701 bot is step 1.</b> Today you add the agent.</span></li>
-        </ol>
-        <p class="s31-thanks reveal">Thank you — questions?</p>
-        <p class="s31-by reveal">Prajwal Gowda H M · Goutham Rao N · Unisys</p>
+        <h1 class="title reveal">You don’t need to start with code. You need a problem worth solving.</h1>
+        <p class="s31-lede reveal">AI agents can now write the script. What they can’t do is find the problem that matters.</p>
+        <div class="s31-flow"><div class="s31-step reveal"><span class="s31-n">1</span><span class="icon-circle" style="--d:40px;--c:var(--amber);color:#241A00;">${svgIcon('fa-magnifying-glass')}</span><b>Find a real problem</b><small>people who are stuck, losing time or money</small></div><span class="s31-arr" aria-hidden="true">→</span><div class="s31-step reveal"><span class="s31-n">2</span><span class="icon-circle" style="--d:40px;--c:rgba(255,255,255,.1);">${svgIcon('fa-pen')}</span><b>Write it clearly</b><small>your problem statement is your prompt and your spec</small></div><span class="s31-arr" aria-hidden="true">→</span><div class="s31-step reveal"><span class="s31-n">3</span><span class="icon-circle" style="--d:40px;--c:var(--teal);">${svgIcon('fa-bolt')}</span><b>AI agents build it</b><small>Copilot, Kiro and UiPath, like you did today</small></div><span class="s31-arr" aria-hidden="true">→</span><div class="s31-step reveal"><span class="s31-n">4</span><span class="icon-circle" style="--d:40px;--c:rgba(255,255,255,.1);">${svgIcon('fa-circle-check')}</span><b>You check and improve</b><small>test it with real users, fix, repeat</small></div></div>
+        <div class="s31-row">
+          <div class="s31-story reveal"><span class="s31-k">Problem first: a real story</span><b>Alakh Pandey</b> was a physics teacher, not a coder. Coaching was too costly, so in 2016 he taught free on YouTube. <b>PhysicsWallah</b> became <strong>India’s 101st unicorn</strong> ($1.1 billion) in 2022.</div>
+          <div class="s31-tpl reveal"><span class="s31-k">Write yours tonight</span><i>[Who]</i> struggles with <i>[problem]</i> because <i>[reason]</i>. Today they <i>[current way]</i>. I will build <i>[idea]</i> so they <i>[result]</i>.<em>e.g. Small shop owners in Mysore lose 2 hours a day updating stock by hand. I will build a bot + AI agent that reads their bills and updates the sheet.</em></div>
+        </div>
       </div>
       <div class="s31-qr reveal">
-        <a href="${REPO_URL}" target="_blank" rel="noopener" class="qr-tile" style="width:clamp(170px,19vw,220px);">${QR_SVG}</a>
+        <a href="${REPO_URL}" target="_blank" rel="noopener" class="qr-tile" style="width:clamp(160px,17vw,200px);">${QR_SVG}</a>
         <p>Scan for the repo</p>
         <p class="s31-link">github.com/<wbr>PrajwalAIProject/<wbr>rpa-ai-workshop</p>
+        <p class="s31-thanks">Thank you — questions?</p>
+        <p class="s31-by">Prajwal Gowda H M · Goutham Rao N · Unisys</p>
       </div>
     </div>
   </div>`}
-
 ];
 
 /* ============================= ENGINE ============================= */
@@ -2992,6 +3042,19 @@ function timers(){
 function onClick(btn, fn){ if(btn) btn.addEventListener('click', ()=>{ btn.blur(); fn(btn); }); }
 
 const INTERACTIONS = {
+  // Slide "Part 3": click languages as hands go up, then the surprise lights every project box.
+  poll(el){
+    const t = timers(), chips = [...el.querySelectorAll('.s27-chip')], wow = el.querySelector('.s27-wow');
+    const cells = [...el.querySelectorAll('.s27-c')];
+    chips.forEach(c => c.addEventListener('click', ()=>{ c.blur(); c.classList.toggle('on'); }));
+    const reset = ()=>{ t.clear(); el.classList.remove('s27-surprise'); wow.hidden = true; chips.forEach(c => c.classList.remove('on')); cells.forEach(c => c.classList.remove('lit')); };
+    onClick(el.querySelector('[data-act="surprise"]'), ()=>{
+      el.classList.add('s27-surprise'); wow.hidden = false;
+      cells.forEach(c => c.classList.remove('lit'));
+      cells.forEach((c, i) => t.later(()=> c.classList.add('lit'), 250 + i * 120));
+    });
+    return reset;
+  },
   // Slide "Video": load the YouTube player only when clicked; leaving the slide stops it.
   video(el){
     const box = el.querySelector('.yt');
