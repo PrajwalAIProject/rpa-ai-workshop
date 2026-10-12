@@ -69,6 +69,8 @@ the three scripts."* Then use VS Code's **Source Control** panel → **Publish t
 Before you confirm, check that `.env` is **not** in the list of files: it holds your key.
 A public repo with a clear README is the "clean GitHub" item employers look for.
 
+**Bonus 2: put the chatbot online.** [`expert/HOSTING.md`](expert/HOSTING.md) shows how to run it in GitHub Codespaces, or host it as a web chatbot with its own link on Streamlit Community Cloud, for free.
+
 New to a term? See the [`GLOSSARY.md`](../GLOSSARY.md). Something broken? See
 [`TROUBLESHOOTING.md`](../TROUBLESHOOTING.md) and the error table in each level.
 

@@ -155,6 +155,8 @@ hire for.
 - *"News is empty. Print the Google News URL you used and the HTTP status, and fix the query."*
 - *"Add /compare <company>: load a second company and let me ask questions about both."*
 
+**Put it online:** [`HOSTING.md`](HOSTING.md) shows two free ways to host your chatbot from GitHub: GitHub Codespaces, or a web chatbot with its own link on Streamlit Community Cloud ([`streamlit_app.py`](streamlit_app.py)).
+
 Reference solution: [`stock_chatbot.py`](stock_chatbot.py). In this repo it imports
 `stock_trend.py` from `../advanced/`; in your own folder all three files sit together.
 

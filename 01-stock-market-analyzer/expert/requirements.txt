@@ -1,0 +1,9 @@
+# Packages for the company chatbot (stock_chatbot.py) and its web app (streamlit_app.py).
+# Streamlit Community Cloud installs these automatically from this file.
+streamlit>=1.40
+yfinance>=1.0
+requests>=2.32
+beautifulsoup4>=4.12
+feedparser>=6.0
+openai>=1.40
+python-dotenv>=1.0
