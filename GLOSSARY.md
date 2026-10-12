@@ -77,7 +77,7 @@ CLI runs as an MCP server (`uip mcp serve`) so Kiro can read and start UiPath jo
 
 Large Language Model — an AI model trained on large amounts of text that generates and
 reasons over natural language. The expert levels call an LLM (Google Gemini, or Groq) to write
-the stock report and pick the news that matters.
+the company chatbot's answers and pick the news that matters.
 
 ### MFA
 

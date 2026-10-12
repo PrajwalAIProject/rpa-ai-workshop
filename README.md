@@ -60,7 +60,7 @@ that sit alongside that ladder.
 
 | # | Project | Overview | What it teaches |
 | - | ------- | -------- | --------------- |
-| 1 | Stock Market Analyzer | [`01-stock-market-analyzer/README.md`](01-stock-market-analyzer/README.md) | Building with GitHub Copilot (agent-mode prompts in VS Code), company-name → stock lookup, web scraping (requests + BeautifulSoup), an AI-written report from a free AI API (Gemini / Groq) |
+| 1 | Stock Market Analyzer | [`01-stock-market-analyzer/README.md`](01-stock-market-analyzer/README.md) | Building with GitHub Copilot (agent-mode prompts in VS Code), company-name → stock lookup, web scraping (requests + BeautifulSoup), a company chatbot that answers from that data plus the latest news, using a free AI API (Gemini / Groq) |
 | 2 | Morning News Digest | [`02-morning-news-digest/README.md`](02-morning-news-digest/README.md) | Built with GitHub Copilot: Indian + world RSS feeds with a topic filter, rule-based categories and an HTML news page, then a free AI editor (Gemini / Groq) that picks what matters, with optional Gmail delivery |
 | 3 | StudioX to Agentic RPA | [`03-studiox-to-agentic-rpa/README.md`](03-studiox-to-agentic-rpa/README.md) | The PhoneDeals bot: phones under ₹20,000 from amazon.in into Excel, built in UiPath Studio with Kiro specs and run by the UiPath CLI; then deployed to Orchestrator with retries, and watched by a Kiro-built agent that decides retry / escalate / stop |
 

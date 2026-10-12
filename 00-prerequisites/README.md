@@ -162,7 +162,7 @@ these one at a time:
 | `python --version` | `Python 3.11` or higher |
 | `git --version` | A Git version number |
 | `python 01-stock-market-analyzer/basic/company_info.py "Infosys"` | Infosys stock details (symbol, price) |
-| `python 01-stock-market-analyzer/expert/ai_stock_report.py "Infosys" --dry-run` | The AI prompt the script would send |
+| `python 01-stock-market-analyzer/expert/stock_chatbot.py "Infosys" --dry-run` | The data and news the chatbot would give the AI |
 | `python 02-morning-news-digest/basic/news_digest.py cricket` | Today's cricket headlines |
 | Copilot Chat (Agent mode): *"Create hello.py that prints Copilot works, then run it."* | `Copilot works` in the terminal |
 | `python 03-studiox-to-agentic-rpa/expert/test_watcher_agent.py` | `All watcher checks passed.` |
@@ -180,7 +180,7 @@ the workshop day.
 | Project and level | Python | VS Code + Copilot | UiPath Studio + Cloud | UiPath CLI | Kiro | Free AI key |
 | ----------------- | :----: | :---------------: | :-------------------: | :--------: | :--: | :---------: |
 | **1** Stock analyzer: basic and advanced | ✅ | ✅ | — | — | — | — |
-| **1** Stock analyzer: expert (AI report) | ✅ | ✅ | — | — | — | ✅ |
+| **1** Stock analyzer: expert (company chatbot) | ✅ | ✅ | — | — | — | ✅ |
 | **2** News digest: basic and advanced | ✅ | ✅ | — | — | — | — |
 | **2** News digest: expert (AI editor) | ✅ | ✅ | — | — | — | ✅ |
 | **3** PhoneDeals: basic (phones under ₹20K → Excel) | ✅ | — | ✅ | ✅ | ✅ | — |

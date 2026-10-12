@@ -1,6 +1,6 @@
 # Free AI API key (expert levels of Projects 1 and 2)
 
-The expert levels send data to an AI model and get text back: the stock report in Project 1,
+The expert levels send data to an AI model and get text back: the company chatbot in Project 1,
 the morning news briefing in Project 2. You need **one free API key** for both. **No credit card, no AWS account, no payment.**
 
 > **Copilot vs. an API key.** GitHub Copilot is the AI that *helps you write the code*
@@ -77,12 +77,12 @@ if one service is slow or blocked on the college network.
 From your project folder:
 
 ```bash
-pip install openai python-dotenv
-python ai_stock_report.py "Infosys"
+pip install openai python-dotenv feedparser
+python stock_chatbot.py "Infosys" --ask "What does this company do?"
 ```
 
-A report printed with a `model: ... tokens in/out` line means it works. (No script yet?
-Run the reference one from the repo root: `python 01-stock-market-analyzer/expert/ai_stock_report.py "Infosys"`,
+A plain-English answer about Infosys means it works. (No script yet?
+Run the reference one from the repo root: `python 01-stock-market-analyzer/expert/stock_chatbot.py "Infosys" --ask "What does this company do?"`,
 with the `.env` in `01-stock-market-analyzer/expert/` or the repo root.)
 
 ## Common errors and fixes

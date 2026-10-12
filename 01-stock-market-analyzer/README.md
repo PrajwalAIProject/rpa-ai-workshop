@@ -11,13 +11,13 @@ Each level adds one new idea on top of the last one:
 | ----- | -------- | --------------- | -------- |
 | [**Basic**](basic/README.md) | `Infosys` | Finds the company's stock and prints its price, day change, 52-week range, market cap | Talking to a data source (yfinance) |
 | [**Advanced**](advanced/README.md) | `Infosys` | Prints the **full trend**: 1 week → 1 year price change, 50/200-day averages, plus fundamentals **web-scraped** from screener.in (growth, ratios, quarterly results, pros/cons) | Web scraping (requests + BeautifulSoup) |
-| [**Expert**](expert/README.md) | `Infosys` | Sends all that data to a **free AI model** (Google Gemini, or Groq), which writes a plain-English report | Using AI from your own code |
+| [**Expert**](expert/README.md) | `Infosys` | A **chatbot** about the company: all that data **plus the latest news**, answered by a **free AI model** (Google Gemini, or Groq) | Using AI from your own code, safely |
 
 ```mermaid
 flowchart LR
     A[Company name] --> B[Basic: find the stock and its price]
     B --> C[Advanced: price trend + scraped fundamentals]
-    C --> D[Expert: free AI model writes the report]
+    C --> D[Expert: + latest news, chat with a free AI model]
 ```
 
 ## What you need
@@ -48,7 +48,7 @@ Setup guides: [Python](../00-prerequisites/python-setup.md) ·
    something is wrong, tell Copilot exactly what you see ("the market cap is missing",
    "it picked the US listing, I want NSE") and let it fix the code.
 6. **Stuck?** Each level has a working **reference solution** in this folder
-   (`basic/company_info.py`, `advanced/stock_trend.py`, `expert/ai_stock_report.py`).
+   (`basic/company_info.py`, `advanced/stock_trend.py`, `expert/stock_chatbot.py`).
    Compare it with Copilot's code, or run it directly.
 
 > **Copilot limits:** Copilot Free gives 50 chat requests a month. These three prompts
@@ -60,8 +60,8 @@ Setup guides: [Python](../00-prerequisites/python-setup.md) ·
 - **Basic:** `python company_info.py "Infosys"` prints a clean block of stock details.
 - **Advanced:** `python stock_trend.py "Infosys"` prints the price trend and the scraped
   fundamentals, and saves `INFY_NS_trend.json`.
-- **Expert:** `python ai_stock_report.py "Infosys"` prints an AI-written report and
-  saves `INFY_NS_report.md`.
+- **Expert:** `python stock_chatbot.py "Infosys"` opens a chat that answers questions
+  from the data and the news, and `/report` saves `INFY_NS_report.md`.
 
 **Bonus: put it on GitHub.** First ask Copilot: *"Create a .gitignore that ignores .env,
 \*_trend.json, \*_report.md and \_\_pycache\_\_, and a short README.md explaining how to run
